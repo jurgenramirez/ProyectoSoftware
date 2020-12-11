@@ -32,13 +32,13 @@ import { VerificationModule } from './verification/verification.module';
 import { NonAuthGuardService } from './services/non-auth-guard.service';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { FormsModule} from '@angular/forms';
+import { ProveedoresModule } from './proveedores/proveedores.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GPageNotFoundComponent,
-    ProveedoresComponent
+    GPageNotFoundComponent
   ],
   imports: [
     BrowserModule,
