@@ -6,6 +6,12 @@ import * as fromApp from '../../store/app.reducers';
 import * as AuthActions from '../../store/auth/auth.actions';
 import { Observable } from 'rxjs';
 
+
+import { LoginService } from '../../services/login.service'
+import { Login } from 'src/app/models/login';
+import { Router, CanActivate } from '@angular/router';
+
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -19,7 +25,7 @@ export class SigninComponent implements OnInit {
   authState: Observable<AuthState>;
 
 
-  constructor(private store: Store<fromApp.AppState>) {
+  constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,private router: Router) {
   }
 
   ngOnInit() {
@@ -35,10 +41,36 @@ export class SigninComponent implements OnInit {
 
 
   onSubmitted() {
+    console.log('Hola mUndo');
+
+    /*
     this.store.dispatch(new AuthActions.SignIn({
       email: this.signInForm.value.email,
       password: this.signInForm.value.password
     }));
+    */
+  
+    let log = new Login();
+    log.email = this.signInForm.value.email;
+    log.password = this.signInForm.value.password;
+    console.log(log);
+
+    this.loginservice.login(log).subscribe(data=>{
+
+      if(data.result == "Credenciales inválidas"){
+        //this.router.navigate(['/login']);
+        console.log('INVALIDO');
+        
+      }else if (data.result.rol == 1) {
+        //this.router.navigate(['/browse']);
+        console.log('Bienvenido Cliente');
+      }else if (data.result.rol == 2) {
+        //this.router.navigate(['/browse']);
+        console.log('Bienvenido Proveedor')
+      }
+      
+    })
+
   }
 
 }
