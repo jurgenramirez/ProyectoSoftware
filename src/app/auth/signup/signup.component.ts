@@ -1,6 +1,6 @@
 import { AuthState } from './../../store/auth/auth.reducer';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import * as AuthActions from '../../store/auth/auth.actions';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../store/app.reducers';
@@ -9,6 +9,7 @@ import * as PasswordValidators from '../../../utils//validators/password.validat
 import * as _ from 'lodash';
 import { RegisterService } from '../../services/register.service';
 import { Cliente } from '../../models/cliente';
+import { Proveedor } from '../../models/proveedor';
 
 @Component({
   selector: 'app-signup',
@@ -25,7 +26,7 @@ export class SignupComponent implements OnInit {
   isImageSaved: boolean;
   cardImageBase64: string;
   extension:string;
-  constructor(private store: Store<fromApp.AppState>,private registerService:RegisterService) {
+  constructor(private store: Store<fromApp.AppState>,private registerService:RegisterService,public formBuilder:FormBuilder) {
   }
 
   ngOnInit() {
@@ -47,34 +48,38 @@ export class SignupComponent implements OnInit {
 
 
   onSubmitted() {
-   /* this.store.dispatch(new AuthActions.SignUp(
-      {
-        email: this.signUpForm.value.email,
-        password: this.signUpForm.value.passwordGroup.newPassword,
-        passwordRepeat: this.signUpForm.value.passwordGroup.newPasswordConfirm
-      }));*/
-      console.log('Hola mUndo');
-      console.log(this.signUpForm.value.email);
-      console.log(this.signUpForm.value.nombre);
-      console.log(this.cardImageBase64);
-      console.log(this.extension=='image/png');
-      let cli= new Cliente();
-      cli.nombre=this.signUpForm.value.nombre;
-      cli.apellido=this.signUpForm.value.apellido;
-      cli.celular=this.signUpForm.value.celular;
-      cli.email=this.signUpForm.value.email;
-      cli.password=this.signUpForm.value.passwordGroup.newPassword;
-      cli.foto=this.cardImageBase64;
-      if(this.extension=='image/png'){
-        cli.extension='png';
-      }else{
-        cli.extension='jpg';
-      }
-      console.log(cli);
-      this.registerService.registerclient(cli).subscribe(data=>{
-        console.log('se guardo:');
-        console.log(data);
-      })
+
+      if(this.signUpForm.value.tipo=='Proveedor'){
+        let prov= new Proveedor();
+        prov.nombre=this.signUpForm.value.nombre;
+        prov.direccion=this.signUpForm.value.direccion;
+        prov.email=this.signUpForm.value.email;
+        prov.password=this.signUpForm.value.passwordGroup.newPassword;
+        this.registerService.registerProveedor(prov).subscribe(data=>{
+          console.log('se guardo:');
+          console.log(data);
+          this.set_form_signup();
+        });
+
+      }else if(this.signUpForm.value.tipo='Cliente'){
+         let cli= new Cliente();
+         cli.nombre=this.signUpForm.value.nombre;
+         cli.apellido=this.signUpForm.value.apellido;
+         cli.celular=this.signUpForm.value.celular;
+         cli.email=this.signUpForm.value.email;
+         cli.password=this.signUpForm.value.passwordGroup.newPassword;
+         cli.foto=this.cardImageBase64;
+         if(this.extension=='image/png'){
+           cli.extension='png';
+         }else{
+           cli.extension='jpg';
+         }
+         this.registerService.registerclient(cli).subscribe(data=>{
+           console.log('se guardo:');
+           this.set_form_signup();
+           console.log(data);
+         })
+    }
   }
 
   fileChangeEvent(fileInput: any) {
@@ -135,6 +140,20 @@ export class SignupComponent implements OnInit {
     removeImage() {
         this.cardImageBase64 = null;
         this.isImageSaved = false;
+    }
+    set_form_signup():void{
+      this.signUpForm = this.formBuilder.group({
+        email: new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
+        nombre: new FormControl(null, [Validators.required]),
+        apellido: new FormControl(null),
+        celular: new FormControl(null),
+        tipo: new FormControl(null, [Validators.required]),
+        direccion: new FormControl(null, [Validators.required]),
+        passwordGroup: new FormGroup({
+          newPassword: new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(52)]),
+          newPasswordConfirm: new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(52)]),
+        }, PasswordValidators.passwordMatchCheckValidator.bind(this))
+      });
     }
 
 }

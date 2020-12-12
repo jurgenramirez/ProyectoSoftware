@@ -12,4 +12,7 @@ export class RegisterService {
   registerclient(datos: any): Observable<any> {
     return this.api.post('5000/registrarCliente', datos);
   }
+  registerProveedor(datos: any): Observable<any> {
+    return this.api.post('5000/registrarProveedor', datos);
+  }
 }
