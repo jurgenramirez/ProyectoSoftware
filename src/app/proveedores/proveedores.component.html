@@ -27,6 +27,8 @@
       <th> Precio Venta </th>
       <th> Stock </th>
       <th> Foto </th>
+      <th> Actualizar </th>
+      <th> Eliminar </th>
   
     </tr>
 
@@ -35,11 +37,19 @@
       <td>{{Producto.precioVenta}}</td>
       <td>{{Producto.stock}}</td>
       <td><img src="{{Producto.foto}}"></td>
+      <td>
+        
+        <button class="btn btn-info" type="submit">Actualizar</button>
+      
+      </td>
+
+      <td><button class="btn btn-info" type="submit">Eliminar</button></td>
     </tr>
 
   </table>
 
-
+  <br>
+  <button class="btn btn-info" type="submit">Agregar Producto</button>
 
 </div>
 
