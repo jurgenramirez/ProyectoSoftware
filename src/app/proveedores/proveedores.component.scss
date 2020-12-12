@@ -22,8 +22,8 @@
           justify-content: center;
         }
         img {
-          width: 90px;
-          height: 90px;
+          width: 05px;
+          height: 05px;
         }
         p {
           font-size: 18px;
@@ -80,6 +80,34 @@
       .gridStyles{
         width: 940px;
         height: 300;
+      }
+
+      #users {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #users td, #users th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #users tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #users tr:hover {background-color: #ddd;}
+      
+      #users th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: cadetblue;
+        color: white;
+      }
+
+      #users img {
+        width: 100px;
+        height: 100px;
       }
     
 }

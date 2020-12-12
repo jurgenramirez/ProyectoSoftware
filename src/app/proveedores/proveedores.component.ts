@@ -6,6 +6,7 @@ import { Login } from 'src/app/models/login';
 import { Router, CanActivate } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-proveedores',
   templateUrl: './proveedores.component.html',
@@ -17,13 +18,13 @@ export class ProveedoresComponent implements OnInit {
 
   user :string;
 
-
   idProveedor :number;
 
   usersx: any;
   users: any[];
   x: "";
 
+  myurl : string;
   ///
   listaProductos: any[] = [];
   Productos:any[];
@@ -55,21 +56,21 @@ export class ProveedoresComponent implements OnInit {
       this.x = this.users['nombre'];
       this.idProveedor = this.users['idProveedor'];
 
-      console.log(this.idProveedor);
+      console.log("Proveedor",this.idProveedor);
 
+    
+      this.http.get(`http://34.72.4.108:5001/productos?idProveedor=${this.idProveedor}`)
+      .subscribe((data) =>{
+ 
+       this.Productos = data['result'];
+       console.log(this.Productos);
+       
+ 
+      });
+      
      });
 
-     this.http.get(`http://34.72.4.108:5001/productos?idProveedor=7`)
-     .subscribe((data) =>{
-
-      this.Productos = data['result'];
-      console.log(this.Productos);
-
-     });
-     
-     
   }
-
 
 }
 
