@@ -3,11 +3,8 @@
   <div class="form row">
       <div class="col-md-12">
 
-          <div class="form-group">
-              <label for="nombre">NOMBRE</label>
-              <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre" >
-          </div>
-
+        <br>
+        <br>
           <h1>
             Proveedores
           </h1>
@@ -18,24 +15,31 @@
             Nombre: {{x}}
           </p>
 
-          <table>
-            <tr>
 
-              <td> Nombre </td>
-              <td> Precio Venta </td>
-              <td> Stock </td>
-              <td> Foto </td>
-          
-            </tr>
-          </table>
-          <tr *ngFor="let Producto of Productos">
-            <td>{{Producto.nombre}}</td>
-            <td>{{Producto.precioVenta}}</td>
-            <td>{{Producto.stock}}</td>
-            <td>{{Producto.foto}}</td>
-          </tr>
       </div>
+
   </div>
+
+  <table id="users">
+    <tr>
+
+      <th> Nombre </th>
+      <th> Precio Venta </th>
+      <th> Stock </th>
+      <th> Foto </th>
+  
+    </tr>
+
+    <tr *ngFor="let Producto of Productos">
+      <td>{{Producto.nombre}}</td>
+      <td>{{Producto.precioVenta}}</td>
+      <td>{{Producto.stock}}</td>
+      <td><img src="{{Producto.foto}}"></td>
+    </tr>
+
+  </table>
+
+
 
 </div>
 
