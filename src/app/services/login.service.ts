@@ -12,5 +12,7 @@ export class LoginService {
   login(datos: any): Observable<any> {
     return this.api.post('https://eiur26wdr2.execute-api.us-east-2.amazonaws.com/prod/login', datos);
   }
+
+  
 }
 

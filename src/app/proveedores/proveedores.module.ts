@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { ProveedoresComponent } from './proveedores.component';
 import { ProveedoresRoutes } from './proveedores.routes';
 
+
 @NgModule({
   imports: [
     CommonModule,

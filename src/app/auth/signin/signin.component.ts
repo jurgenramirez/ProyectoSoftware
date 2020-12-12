@@ -24,6 +24,8 @@ export class SigninComponent implements OnInit {
 
   authState: Observable<AuthState>;
 
+  idUsuario ="";
+
 
   constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,private router: Router) {
   }
@@ -53,10 +55,10 @@ export class SigninComponent implements OnInit {
     let log = new Login();
     log.email = this.signInForm.value.email;
     log.password = this.signInForm.value.password;
-    console.log(log);
 
     this.loginservice.login(log).subscribe(data=>{
 
+      console.log(data);
       if(data.result == "Credenciales inválidas"){
         //this.router.navigate(['/login']);
         console.log('INVALIDO');
@@ -65,7 +67,10 @@ export class SigninComponent implements OnInit {
         //this.router.navigate(['/browse']);
         console.log('Bienvenido Cliente');
       }else if (data.result.rol == 2) {
-        //this.router.navigate(['/browse']);
+        this.router.navigate(['/','proveedores',data.result.idUsuario]);
+        //<ion-item button [routerLink]="['/','viajes',item.id_usuario,item.id_viaje,'paises']">                  
+        this.idUsuario = data.result.idUsuario
+        console.log(this.idUsuario);
         console.log('Bienvenido Proveedor')
       }
       
