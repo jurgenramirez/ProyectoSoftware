@@ -8,14 +8,19 @@ export const config: Configuration = {
   clientSecret: 'clientSecret',
   carausel: [
     {
-      title: 'Title',
-      text: 'Text',
-      imageUrl: '../assets/banner1.jpg'
+      title: 'Compra Online',
+      text: 'Pide en GTBuY',
+      imageUrl: '../assets/img1.jpg'
     },
     {
-      title: 'Title',
-      text: 'Text',
-      imageUrl: '../assets/baner2.jpg'
+      title: 'Proveedores',
+      text: 'Productos guatemaltecos',
+      imageUrl: '../assets/img2.jpg'
+    },
+    {
+      title: 'Logistica',
+      text: 'Nuestra logistica de entrea',
+      imageUrl: '../assets/img3.jpg'
     }
   ],
   bannerUrl: ''
