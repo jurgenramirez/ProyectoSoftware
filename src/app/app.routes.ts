@@ -8,8 +8,9 @@ export const AppRoutes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqModule' },
-  { path: 'proveedores', loadChildren:'./proveedores/proveedores.module#ProveedoresModule'},
-  { path: '**', redirectTo: '/not-found' },
+  //{ path: 'proveedores:id', loadChildren:'./proveedores/proveedores.module#ProveedoresModule'},
+  { path: 'proveedores/:idUser', component:ProveedoresComponent},
+  //{ path: '**', redirectTo: '/not-found' },
   
 ];
 

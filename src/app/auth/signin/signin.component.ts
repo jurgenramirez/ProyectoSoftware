@@ -68,7 +68,6 @@ export class SigninComponent implements OnInit {
         console.log('Bienvenido Cliente');
       }else if (data.result.rol == 2) {
         this.router.navigate(['/','proveedores',data.result.idUsuario]);
-        //<ion-item button [routerLink]="['/','viajes',item.id_usuario,item.id_viaje,'paises']">                  
         this.idUsuario = data.result.idUsuario
         console.log(this.idUsuario);
         console.log('Bienvenido Proveedor')

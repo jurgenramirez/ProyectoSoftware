@@ -5,16 +5,15 @@ import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ProveedorService {
 
   constructor(private api: ApiService) { }
 
-  login(datos: any): Observable<any> {
-    return this.api.post('https://eiur26wdr2.execute-api.us-east-2.amazonaws.com/prod/login', datos);
+  getProductbyProveedor(datos: any): Observable<any> {
+    return this.api.post(`http://34.72.4.108:5001/productos?idProveedor/`, datos);
   }
 
   
 
   
 }
-
