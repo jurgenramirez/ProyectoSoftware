@@ -25,6 +25,9 @@ export class ProveedoresComponent implements OnInit {
   x: "";
 
 
+  categorias: any[] = [];
+
+
   myurl : string;
   ///
   listaProductos: any[] = [];
@@ -73,6 +76,11 @@ export class ProveedoresComponent implements OnInit {
     this.coche = {
       idUser: this.rutaActiva.snapshot.params.idUser,
     };
+
+    this.http.get(` http://34.67.194.244:5002/getcategorias`).subscribe(data=>{  
+      this.categorias = data['result'];
+      console.log(this.categorias);
+    });
 
     this.user = this.rutaActiva.snapshot.params.idUser;
 

@@ -1,65 +1,64 @@
-<div class="proveedores container">
+<div class="proveedores container ">
 
-  <div class="form row">
-      <div class="col-md-12">
-
+  <div class="row">
+    <div class="filters col">
+      <div class="categories">
         <br>
         <br>
-          <h1>
-            Proveedores
-          </h1>
-          <p>
-            Bienvenido
-            ID: {{idProveedor}}
-          </p> 
-          <p>
-            
-
-            Nombre: {{x}}
-
-          </p>
-
-
+        <h1>Categorias</h1>
+        <div class="category">
+          <option value="x" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
+        </div>
       </div>
+    </div>
+    <div class="col-md-9">
+      <br>
+      <br>
+      <h1>Proveedores</h1>
+      <br>
+        <p>
+          Bienvenido
+          ID: {{idProveedor}}
+        </p> 
+        <p>
+          Nombre: {{x}}
+        </p>
 
-  </div>
-
-  <table id="users">
-    <tr>
-
-      <th> Nombre </th>
-      <th> Precio Venta </th>
-      <th> Stock </th>
-      <th> Foto </th>
-      <th> Actualizar </th>
-      <th> Eliminar </th>
-  
-    </tr>
-
-    <tr *ngFor="let Producto of Productos">
-      <td>{{Producto.nombre}}</td>
-      <td>{{Producto.precioVenta}}</td>
-      <td>{{Producto.stock}}</td>
-      <td><img src="{{Producto.foto}}"></td>
-      <td>
-        
-      <button class="btn btn-info" 
-      [routerLink]="['/', 'proveedor', Producto.idProducto]">
-        Actualizar
-      </button>
+        <table id="users">
+          <tr>
       
-      </td>
+            <th> Nombre </th>
+            <th> Precio Venta </th>
+            <th> Stock </th>
+            <th> Foto </th>
+            <th> Actualizar </th>
+            <th> Eliminar </th>
+        
+          </tr>
+      
+          <tr *ngFor="let Producto of Productos">
+            <td>{{Producto.nombre}}</td>
+            <td>{{Producto.precioVenta}}</td>
+            <td>{{Producto.stock}}</td>
+            <td><img src="{{Producto.foto}}"></td>
+            <td>
+              
+            <button class="btn btn-info" 
+            [routerLink]="['/', 'proveedor', Producto.idProducto]">
+              Actualizar
+            </button>
+            
+            </td>
+      
+            <td><button class="btn btn-info" (click)="sendDeleteRequestProducto(Producto.idProducto)">Eliminar</button></td>
+          </tr>
+      
+        </table>
+      
+        <br>
+        <button class="btn btn-info" 
+        (click)="addProduct()">Agregar Producto</button>
 
-      <td><button class="btn btn-info" (click)="sendDeleteRequestProducto(Producto.idProducto)">Eliminar</button></td>
-    </tr>
-
-  </table>
-
-  <br>
-  <button class="btn btn-info" 
-  (click)="addProduct()">Agregar Producto</button>
-
+    </div>
+  </div>
 </div>
-
-
-
