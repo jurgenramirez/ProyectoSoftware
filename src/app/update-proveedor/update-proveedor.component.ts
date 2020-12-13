@@ -6,6 +6,7 @@ import { ActualizaProducto } from 'src/app/models/ActualizarProducto';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 
@@ -21,7 +22,7 @@ export class UpdateProveedorComponent implements OnInit {
   idProducto :string;
 
 
-  constructor(private rutaActiva: ActivatedRoute, private http: HttpClient ) { }
+  constructor(private rutaActiva: ActivatedRoute, private http: HttpClient, private router: Router, ) { }
 
 
   ngOnInit(): void {
@@ -36,20 +37,21 @@ export class UpdateProveedorComponent implements OnInit {
   }
 
   Actualizar(): void{
-    console.log(this.sign.value.nombre);
 
-
-    /*
       this.http.post('http://34.67.194.244:5002/updateproducto',
       {
-        idproducto: 8,
-        precioVenta: 15000,
-        stock: 15
+        idproducto: this.idProducto,
+        precioVenta: this.sign.value.nombre,
+        stock: this.sign.value.apellido
       }).subscribe((response) => {
         console.log(response);
+        
       })
     
-    */
+  }
+
+  a(){
+    return this.router.navigateByUrl('/proveedores/19');
   }
 
 }
