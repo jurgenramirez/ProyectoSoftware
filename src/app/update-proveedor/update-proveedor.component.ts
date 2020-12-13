@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActualizaProducto } from 'src/app/models/ActualizarProducto';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -30,12 +30,13 @@ export class UpdateProveedorComponent implements OnInit {
       nombre: new FormControl(null, [Validators.required]),
       apellido: new FormControl(null),
     });
-
+    
     this.idProducto = this.rutaActiva.snapshot.params.idProducto;
     console.log(this.idProducto);
   }
 
   Actualizar(): void{
+    console.log(this.sign.value.nombre);
 
 
     /*

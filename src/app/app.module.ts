@@ -30,9 +30,11 @@ import { AccountService } from './services/account.service';
 import { BrowseEffects } from './store/browse/browse.effects';
 import { VerificationModule } from './verification/verification.module';
 import { NonAuthGuardService } from './services/non-auth-guard.service';
+
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { ProveedoresModule } from './proveedores/proveedores.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.component';
 
 
 @NgModule({
