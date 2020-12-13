@@ -39,11 +39,14 @@
       <td><img src="{{Producto.foto}}"></td>
       <td>
         
-        <button class="btn btn-info" type="submit">Actualizar</button>
+      <button class="btn btn-info" 
+      [routerLink]="['/', 'proveedor', Producto.idProducto]">
+        Actualizar
+      </button>
       
       </td>
 
-      <td><button class="btn btn-info" type="submit">Eliminar</button></td>
+      <td><button class="btn btn-info" button (click)="sendDeleteRequestProducto(Producto.idProducto)">Eliminar</button></td>
     </tr>
 
   </table>

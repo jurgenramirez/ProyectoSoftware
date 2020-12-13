@@ -39,6 +39,12 @@ export class ProveedoresComponent implements OnInit {
 
   }
 
+  sendDeleteRequestProducto(id){
+
+    console.log(id);
+
+  }
+
   ngOnInit(): void {
 
     

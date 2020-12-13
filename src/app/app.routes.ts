@@ -11,8 +11,13 @@ export const AppRoutes: Routes = [
   { path: 'faq', loadChildren: './faq/faq.module#FaqModule' },
   //{ path: 'proveedores:id', loadChildren:'./proveedores/proveedores.module#ProveedoresModule'},
   { path: 'proveedores/:idUser', component:ProveedoresComponent},
-  { path : 'proveedor/update', component:UpdateProveedorComponent},
+  { path : 'proveedor/:idProducto', component:UpdateProveedorComponent},
   //{ path: '**', redirectTo: '/not-found' },
   
 ];
 
+/* 
+        <button class="btn btn-info" 
+        [routerLink]="['/', 'proveedor', 'update']">Actualizar
+      </button>
+*/
