@@ -7,4 +7,72 @@
             </h2>
         </div>
     </div>
+
+    <div class="form row">
+             
+        <div class="col-md-12">
+
+            <form [formGroup]="sign" (ngSubmit)="agregarProducto()"> 
+
+                <p>
+                    ID:
+                    {{user}}
+                </p>                    
+
+                <div class="form-group">
+        
+                    <label for="tipo">Seleccione Categoria</label>
+                  
+                    <select class="form-control" formControlName="tipo" name="tipo" >
+                  
+                      <option value="{{user.idCategoria}}" *ngFor="let user of users">{{user.nombre}}</option>
+             
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre" >
+                </div>
+          
+                
+                <div class="form-group">
+                    <label for="pventa">Precio Venta</label>
+                    <input type="text" id="pventa" class="form-control" name="pventa" formControlName="pventa" >                  
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="text" id="stock" class="form-control" name="stock" formControlName="stock" >                  
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-info" type="submit">
+                        Agregar Producto
+                      </button>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    
+                    <fieldset class="form-group">
+          
+                        <label>Subir Imagen</label>
+                        <div class="custom-file fileInputProfileWrap">
+                            <input type="file" (change)="fileChangeEvent($event); $event.stopPropagation();" class="fileInputProfile">
+                        </div>
+                    </fieldset>
+                   
+                </div>
+
+             </form> 
+
+        </div>
+
+    </div>
+
+
 </div>

@@ -135,7 +135,8 @@ export class SignupComponent implements OnInit {
 
             reader.readAsDataURL(fileInput.target.files[0]);
         }
-    }
+    
+      }
 
     removeImage() {
         this.cardImageBase64 = null;
