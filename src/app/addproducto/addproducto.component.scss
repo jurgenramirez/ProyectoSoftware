@@ -1,0 +1,122 @@
+.producto {
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 25%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        position: relative;
+        left: -15%;
+    
+        div:last-child {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        img {
+          width: 05px;
+          height: 05px;
+        }
+        p {
+          font-size: 18px;
+          font-weight: bold;
+          color: black;
+          margin: 0;
+        }
+        span {
+          color: #17a2b8;
+          white-space: nowrap;
+        }
+      }
+
+      .form {
+        .loader {
+          top: 20%;
+        }
+        label {
+          font-size: 14px;
+          color: gray;
+          font-weight: bold;
+        }
+    
+        input,
+        button {
+          border-radius: 10px;
+          
+        }
+    
+        button {
+          width: 100%;
+        }
+    
+        .forgot {
+          a {
+            text-decoration: none;
+            p {
+              font-size: 14px;
+              color: gray;
+              text-align: end;
+            }
+          }
+    
+          a:hover {
+            text-decoration: underline gray;
+          }
+        }
+
+      }
+
+      table {
+        width: 100%;
+      }
+
+      .gridStyles{
+        width: 940px;
+        height: 300;
+      }
+
+      #users {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #users td, #users th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #users tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #users tr:hover {background-color: #ddd;}
+      
+      #users th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: cadetblue;
+        color: white;
+      }
+
+      #users img {
+        width: 100px;
+        height: 100px;
+      }
+
+      #users button {
+        width: 100%;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+      
+      }
+    
+}

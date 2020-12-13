@@ -39,6 +39,12 @@ export class ProveedoresComponent implements OnInit {
 
   }
 
+  addProduct(){
+
+    console.log("Bienvenido");
+
+  }
+
   sendDeleteRequestProducto(id){
 
     console.log(id);

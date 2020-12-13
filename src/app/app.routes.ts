@@ -2,6 +2,7 @@ import { GPageNotFoundComponent } from './g-page-not-found/g-page-not-found.comp
 import { Routes } from '@angular/router';
 import { ProveedoresComponent} from './proveedores/proveedores.component';
 import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.component';
+import { AddproductoComponent} from './addproducto/addproducto.component'
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -12,6 +13,7 @@ export const AppRoutes: Routes = [
   //{ path: 'proveedores:id', loadChildren:'./proveedores/proveedores.module#ProveedoresModule'},
   { path: 'proveedores/:idUser', component:ProveedoresComponent},
   { path : 'proveedor/:idProducto', component:UpdateProveedorComponent},
+  { path : 'producto/addProducto', component:AddproductoComponent},
   //{ path: '**', redirectTo: '/not-found' },
   
 ];

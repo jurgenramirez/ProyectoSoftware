@@ -4,6 +4,7 @@ import { UpdateProveedorComponent } from '../update-proveedor/update-proveedor.c
 
 
 
+
 @NgModule({
   declarations: [UpdateProveedorComponent],
   imports: [
