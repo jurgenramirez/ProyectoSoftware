@@ -51,6 +51,14 @@ export class ProveedoresComponent implements OnInit {
 
   }
 
+  reporteVenta(){
+
+    return this.router.navigateByUrl(`/prov/reporteventa/${this.idProveedor}`);
+    
+    
+
+  }
+
   sendDeleteRequestProducto(id){
 
     console.log(id);
