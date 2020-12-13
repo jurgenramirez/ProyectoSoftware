@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 import * as AuthActions from './auth.actions';
 import * as CartActions from '../cart/cart.actions';
 import * as OrderActions from '../order/order.actions';
@@ -9,6 +9,7 @@ import { TokenService } from '../../services/token.service';
 import { AccountService } from '../../services/account.service';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
+import { LoginService } from '../../services/login.service';
 
 
 @Injectable()
@@ -44,10 +45,17 @@ export class AuthEffects {
       map((action: AuthActions.SignIn) => {
         return action.payload;
       }),
-      switchMap((credentials: { email: string, password: string, password2: string }) => {
-        return this.tokenService.obtainAccessToken(credentials.email, credentials.password)
+      switchMap((credentials: { email: string, password: string, password2: string,data:object }) => {
+        console.log('desde el effect');
+        console.log('email:'+credentials.email);
+        console.log('password:'+credentials.password);
+        console.log('imprimiendo data: ');
+        console.log(credentials.data);
+    
+  
+        return this.loginService.login2(credentials.email, credentials.password)
           .pipe(switchMap(res => {
-            this.tokenService.saveToken(res);
+            this.tokenService.saveToken(credentials.data);
             this.router.navigate(['/']);
             return [
               { type: AuthActions.SIGN_IN_SUCCESS, payload: { effect: AuthActions.SIGN_IN } },
@@ -109,7 +117,7 @@ export class AuthEffects {
       }));
 
 
-  constructor(private actions$: Actions, private tokenService: TokenService,
+  constructor(private actions$: Actions, private tokenService: TokenService,private loginService: LoginService,
               private router: Router, private accountService: AccountService) {
   }
 }
