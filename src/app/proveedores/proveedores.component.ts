@@ -51,6 +51,17 @@ export class ProveedoresComponent implements OnInit {
   sendDeleteRequestProducto(id){
 
     console.log(id);
+    
+
+   this.http.post('http://34.67.194.244:5002/deleteproducto',
+    {
+
+      idproducto : id
+
+    }).subscribe((response) => {
+      console.log(response);
+      
+    })
 
   }
 
