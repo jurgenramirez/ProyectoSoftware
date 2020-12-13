@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UpdateProveedorComponent } from '../update-proveedor/update-proveedor.component';
+import { AddproductoComponent } from '../addproducto/addproducto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
-
 @NgModule({
-  declarations: [UpdateProveedorComponent],
+  declarations: [AddproductoComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
   ]
 })
-export class ProveedorModule { }
+export class ProveedorProductoModule { }

@@ -10,9 +10,13 @@
           </h1>
           <p>
             Bienvenido
+            ID: {{idProveedor}}
           </p> 
           <p>
+            
+
             Nombre: {{x}}
+
           </p>
 
 
@@ -39,17 +43,21 @@
       <td><img src="{{Producto.foto}}"></td>
       <td>
         
-        <button class="btn btn-info" type="submit">Actualizar</button>
+      <button class="btn btn-info" 
+      [routerLink]="['/', 'proveedor', Producto.idProducto]">
+        Actualizar
+      </button>
       
       </td>
 
-      <td><button class="btn btn-info" type="submit">Eliminar</button></td>
+      <td><button class="btn btn-info" (click)="sendDeleteRequestProducto(Producto.idProducto)">Eliminar</button></td>
     </tr>
 
   </table>
 
   <br>
-  <button class="btn btn-info" type="submit">Agregar Producto</button>
+  <button class="btn btn-info" 
+  (click)="addProduct()">Agregar Producto</button>
 
 </div>
 

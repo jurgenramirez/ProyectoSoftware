@@ -30,9 +30,11 @@ import { AccountService } from './services/account.service';
 import { BrowseEffects } from './store/browse/browse.effects';
 import { VerificationModule } from './verification/verification.module';
 import { NonAuthGuardService } from './services/non-auth-guard.service';
+
 import { ProveedoresComponent } from './proveedores/proveedores.component';
-import { FormsModule} from '@angular/forms';
 import { ProveedoresModule } from './proveedores/proveedores.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.component';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { ProveedoresModule } from './proveedores/proveedores.module';
     BrowseModule,
     ProductDetailModule,
     FormsModule,
+    ReactiveFormsModule,
     // CartModule, lazy loaded module not imported here
     // CheckoutModule, lazy loaded module not imported here
     // AccountModule, lazy loaded module not imported here
