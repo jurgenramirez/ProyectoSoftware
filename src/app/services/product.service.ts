@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { config } from '../../config/local';
 import { ProductDetail, Product, ProductVariantResponse, Category, Colors } from '../store/model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class ProductService {
 
-  publicUrl = `${config.apiUrl}/api/public/product`;
-  categoryUrl = `${config.apiUrl}/api/public/category`;
-  colorUrl = `${config.apiUrl}/api/public/colors`;
+  publicUrl = `${config.apiUrl}`;
+  categoryUrl = `${config.apiUrl}`;
+  colorUrl = `${config.apiUrl}`;
 
   browsePageSize = 20;
   searchPageSize = 10;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private apiService: ApiService) {
   }
 
   getProducts(page: number, sort: string, category: string, color: string, minPrice: string, maxPrice: string) {
@@ -49,47 +50,49 @@ export class ProductService {
   }
 
   getProductsCount(category: string, color: string, minPrice: string, maxPrice: string) {
-    let params = new HttpParams();
-    if (category && category !== 'any') {
-      params = params.set('category', category);
-    }
+    // let params = new HttpParams();
+    // if (category && category !== 'any') {
+    //   params = params.set('category', category);
+    // }
 
-    if (color && color !== 'any') {
-      params = params.set('color', color);
-    }
+    // if (color && color !== 'any') {
+    //   params = params.set('color', color);
+    // }
 
-    if (minPrice && minPrice !== '0') {
-      params = params.set('minPrice', minPrice);
-    }
+    // if (minPrice && minPrice !== '0') {
+    //   params = params.set('minPrice', minPrice);
+    // }
 
-    if (maxPrice && maxPrice !== '0') {
-      params = params.set('maxPrice', maxPrice);
-    }
+    // if (maxPrice && maxPrice !== '0') {
+    //   params = params.set('maxPrice', maxPrice);
+    // }
 
-    return this.httpClient.get<number>(`${this.publicUrl}/count`,
-      {
-        params
-      });
+    return this.apiService.get('5001/productos');
+   
   }
 
   getFullProduct(productUrl: string) {
-    return this.httpClient.get<ProductDetail>(`${this.publicUrl}/${productUrl}`);
+    return this.apiService.get('5001/productos');
   }
 
   getRelatedProducts(productUrl: string) {
-    return this.httpClient.get<Array<Product>>(`${this.publicUrl}/related/${productUrl}`);
+    return this.apiService.get('5001/productos');
   }
 
   getNewlyAdded() {
-    return this.httpClient.get<Array<Product>>(this.publicUrl + '/recent');
+    return this.apiService.get('5001/productos');
   }
 
   getMostSelling() {
-    return this.httpClient.get<Array<ProductVariantResponse>>(this.publicUrl + '/mostselling');
+    console.log('most selling');
+    // this.apiService.get('5001/productos').subscribe(data=>{
+    //     return data['result'];
+    // });
+    return this.httpClient.get<Array<Product>>(this.publicUrl + '/productos');
   }
 
   getInterested() {
-    return this.httpClient.get<Array<Product>>(this.publicUrl + '/interested');
+    return this.httpClient.get<Array<Product>>(this.publicUrl + '/productos');
   }
 
   searchProduct(page: number, keyword: string) {

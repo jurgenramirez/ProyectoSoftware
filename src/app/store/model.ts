@@ -11,6 +11,17 @@ export interface User {
   emailVerified: number;
 }
 
+export interface Usuario {
+  idCliente:number;
+  nombre: string;
+  apellido: string;
+  celular: string;
+  foto: string;
+}
+
+
+
+
 export interface Category {
   name: string;
 }
@@ -45,10 +56,13 @@ export interface Product {
 }
 
 export interface ProductVariantResponse {
-  id: number;
-  name: string;
-  url: string;
-  productVariant: ProductVariant;
+  foto: string;
+  idCategoria: number;
+  idProducto: number;
+  nombre: string;
+  precioVenta: number;
+  stock: number;
+  url:string;
 }
 
 export interface ProductDetail {

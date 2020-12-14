@@ -46,11 +46,7 @@ export class AuthEffects {
         return action.payload;
       }),
       switchMap((credentials: { email: string, password: string, password2: string,data:object }) => {
-        console.log('desde el effect');
-        console.log('email:'+credentials.email);
-        console.log('password:'+credentials.password);
-        console.log('imprimiendo data: ');
-        console.log(credentials.data);
+        
     
   
         return this.loginService.login2(credentials.email, credentials.password)
@@ -59,7 +55,7 @@ export class AuthEffects {
             this.router.navigate(['/']);
             return [
               { type: AuthActions.SIGN_IN_SUCCESS, payload: { effect: AuthActions.SIGN_IN } },
-              { type: AuthActions.FETCH_VERIFICATION_STATUS }
+              //{ type: AuthActions.FETCH_VERIFICATION_STATUS }
             ];
           }), catchError(error => of(new AuthActions.AuthError({ error, errorEffect: AuthActions.SIGN_IN }))));
       }));
@@ -104,17 +100,17 @@ export class AuthEffects {
         }];
       }));
 
-  @Effect()
-  fetchVerificationStatus = this.actions$
-    .pipe(ofType(AuthActions.FETCH_VERIFICATION_STATUS),
-      switchMap((action: AuthActions.FetchVerificationStatus) => {
-        return this.accountService.getVerificationStatus()
-          .pipe(map(res => {
-            return {
-              type: AuthActions.FETCH_VERIFICATION_STATUS_SUCCESS, payload: res
-            };
-          }), catchError(error => of(new AuthActions.SignOut())));
-      }));
+  // @Effect()
+  // fetchVerificationStatus = this.actions$
+  //   .pipe(ofType(AuthActions.FETCH_VERIFICATION_STATUS),
+  //     switchMap((action: AuthActions.FetchVerificationStatus) => {
+  //       return this.accountService.getVerificationStatus()
+  //         .pipe(map(res => {
+  //           return {
+  //             type: AuthActions.FETCH_VERIFICATION_STATUS_SUCCESS, payload: res
+  //           };
+  //         }), catchError(error => of(new AuthActions.SignOut())));
+  //     }));
 
 
   constructor(private actions$: Actions, private tokenService: TokenService,private loginService: LoginService,

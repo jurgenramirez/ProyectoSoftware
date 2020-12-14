@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as ShowcaseActions from '../../store/showcase/showcase.actions';
 import { take } from 'rxjs/operators';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-most-selling',
@@ -17,7 +18,7 @@ export class MostSellingComponent implements OnInit {
 
   showcaseState: Observable<ShowcaseState>;
 
-  constructor(private store: Store<fromApp.AppState>) {
+  constructor(private store: Store<fromApp.AppState>, private prodservice: ProductService) {
   }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class MostSellingComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         data => {
+        
           if (data.mostSelling.length === 0) {
             this.store.dispatch(new ShowcaseActions.FetchMostSelling());
           }

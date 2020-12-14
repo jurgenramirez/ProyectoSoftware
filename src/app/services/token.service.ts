@@ -48,6 +48,7 @@ export class TokenService {
   }
 
   saveToken(token): void {
+    console.log('guarando Token ************************')
     Cookies.set('usr', JSON.stringify(token), { expires: 365 });
   }
 

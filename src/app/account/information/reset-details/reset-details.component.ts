@@ -8,6 +8,7 @@ import * as BlankValidators from '../../../../utils/validators/blank.validator';
 import * as AuthActions from '../../../store/auth/auth.actions';
 import { throwError } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
+import { Usuario } from '../../../store/model';
 
 @Component({
   selector: 'app-reset-details',
@@ -29,18 +30,27 @@ export class ResetDetailsComponent implements OnInit {
       phone: new FormControl(null, [BlankValidators.checkIfBlankValidator, Validators.pattern('[0-9]+'), Validators.minLength(11), Validators.maxLength(12)]),
     });
 
-    this.accountService.getUser().pipe(take(1), catchError(error => {
-      this.store.dispatch(new AuthActions.SignOut());
+    console.log('usuario:');
+    console.log(this.accountService.getUser());
+    this.accountService.getUser1().pipe(take(1), catchError(error => {
+     // this.store.dispatch(new AuthActions.SignOut());
       this.router.navigate(['/']);
+      console.log('probando...............................');
       return throwError(error);
+     
     }
     )).subscribe(data => {
+      
+     console.log('imprimeindo usuario');
+     console.log(data[0]['nombre']);
       this.detailsForm.patchValue({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        phone: data.phone,
+        firstName: data[0]['nombre'],
+        lastName: data[0]['apellido'],
+        phone:data[0]['celular'],
       });
-
+      console.log('usuario atenticado');
+      
+      console.log(data);
       this.innerLoading = false;
     });
   }

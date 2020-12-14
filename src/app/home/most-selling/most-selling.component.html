@@ -7,16 +7,16 @@
     (click)="scrollLeft()"></div>
   <div *ngIf="!(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="most-cards" #mostCards>
     <div class="most-card col-lg-3 col-md-6 col-12" *ngFor="let m of (showcaseState | async).mostSelling">
-      <a routerLink="/detail/{{m.url}}/{{m.productVariant.id}}">
-        <img src="{{m.productVariant.thumb}}" alt="{{m.name}}">
+      <a routerLink="/detail/{{m.url}}/{{m.productVariant.idProducto}}">
+        <img src="{{m.productVariant.foto}}" alt="{{m.nombre}}">
         <hr>
-        <p class="product-name">{{m.name}}</p>
+        <p class="product-name">{{m.nombre}}</p>
         <div class="row">
           <div class="col-md-6">
-            <div class="product-color" [ngStyle]="{'background-color': m.productVariant.color.hex}"></div>
+            <!-- <div class="product-color" [ngStyle]="{'background-color': m.productVariant.color.hex}"></div> -->
           </div>
           <div class="col-md-6">
-            <p>{{m.productVariant.price}} €</p>
+            <p>{{m.productVariant.precioVenta}} Q</p>
           </div>
         </div>
       </a>
