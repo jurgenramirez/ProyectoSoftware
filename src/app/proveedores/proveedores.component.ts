@@ -24,6 +24,7 @@ export class ProveedoresComponent implements OnInit {
   users: any[];
   x: "";
 
+
   myurl : string;
   ///
   listaProductos: any[] = [];
@@ -34,14 +35,16 @@ export class ProveedoresComponent implements OnInit {
     ,private router: Router,
     private http: HttpClient) { 
 
-    console.log(this.rutaActiva.snapshot.paramMap.get('idUser'));
+      
 
 
   }
 
   addProduct(){
 
-    console.log("Bienvenido");
+    
+    return this.router.navigateByUrl(`/producto/addProducto/${this.idProveedor}`);
+    
 
   }
 
@@ -50,6 +53,8 @@ export class ProveedoresComponent implements OnInit {
     console.log(id);
 
   }
+
+
 
   ngOnInit(): void {
 

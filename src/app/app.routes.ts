@@ -13,7 +13,7 @@ export const AppRoutes: Routes = [
   //{ path: 'proveedores:id', loadChildren:'./proveedores/proveedores.module#ProveedoresModule'},
   { path: 'proveedores/:idUser', component:ProveedoresComponent},
   { path : 'proveedor/:idProducto', component:UpdateProveedorComponent},
-  { path : 'producto/addProducto', component:AddproductoComponent},
+  { path : 'producto/addProducto/:idProveedor', component:AddproductoComponent},
   //{ path: '**', redirectTo: '/not-found' },
   
 ];
