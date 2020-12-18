@@ -38,7 +38,7 @@ export class UpdateProveedorComponent implements OnInit {
 
   Actualizar(): void{
 
-      this.http.post('http://34.67.194.244:5002/updateproducto',
+      this.http.post('http://35.202.93.127:5002/updateproducto',
       {
         idproducto: this.idProducto,
         precioVenta: this.sign.value.nombre,

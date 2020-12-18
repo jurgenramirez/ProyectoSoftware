@@ -39,7 +39,7 @@ export class AddproductoComponent implements OnInit {
 
 
     
-    this.http.get(` http://34.67.194.244:5002/getcategorias`).subscribe(data=>{  
+    this.http.get(`http://35.202.93.127:5002/getcategorias`).subscribe(data=>{  
       this.users = data['result'];
       
       //this.users = this.usersx[length];
@@ -59,10 +59,9 @@ export class AddproductoComponent implements OnInit {
     console.log(this.sign.value.nombre);
     console.log(this.sign.value.pventa);
     console.log(this.sign.value.stock);
-    console.log(this.sign.value.stock);
     console.log(this.cardImageBase64);
 
-    this.http.post('http://34.67.194.244:5002/addproducto',
+    this.http.post('http://35.202.93.127:5002/addproducto',
     {
       idproveedor: this.user,
       idcategoria: this.sign.value.tipo,

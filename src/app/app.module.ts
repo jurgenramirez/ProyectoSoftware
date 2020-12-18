@@ -36,13 +36,15 @@ import { ProveedoresModule } from './proveedores/proveedores.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.component';
 import { ReporteProveedorComponent } from './reporte-proveedor/reporte-proveedor.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GPageNotFoundComponent,
-    ReporteProveedorComponent
+    ReporteProveedorComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,

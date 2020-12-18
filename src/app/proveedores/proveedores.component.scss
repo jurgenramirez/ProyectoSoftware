@@ -7,6 +7,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 150px;
+    }
+
 
     .title {
         width: 70%;
@@ -213,7 +220,7 @@
       }
 
       table {
-        width: 100%;
+        width: 1%;
       }
 
       .gridStyles{
