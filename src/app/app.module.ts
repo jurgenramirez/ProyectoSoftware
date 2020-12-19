@@ -38,6 +38,8 @@ import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.co
 import { ReporteProveedorComponent } from './reporte-proveedor/reporte-proveedor.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ProfileclienteComponent } from './profilecliente/profilecliente.component';
+import { TarjetaClienteComponent } from './tarjeta-cliente/tarjeta-cliente.component';
+import { AgregartcComponent } from './agregartc/agregartc.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ProfileclienteComponent } from './profilecliente/profilecliente.compone
     GPageNotFoundComponent,
     ReporteProveedorComponent,
     ClienteComponent,
-    ProfileclienteComponent
+    ProfileclienteComponent,
+    TarjetaClienteComponent,
+    AgregartcComponent
   ],
   imports: [
     BrowserModule,

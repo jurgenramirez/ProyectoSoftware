@@ -6,6 +6,8 @@ import { AddproductoComponent} from './addproducto/addproducto.component';
 import { ReporteProveedorComponent} from './reporte-proveedor/reporte-proveedor.component';
 import { ClienteComponent} from './cliente/cliente.component';
 import { ProfileclienteComponent } from './profilecliente/profilecliente.component';
+import { TarjetaClienteComponent } from './tarjeta-cliente/tarjeta-cliente.component';
+import { AgregartcComponent } from './agregartc/agregartc.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -19,7 +21,9 @@ export const AppRoutes: Routes = [
   { path: 'producto/addProducto/:idProveedor', component:AddproductoComponent},
   { path: 'prov/reporteventa/:idProveedor', component:ReporteProveedorComponent},
   { path: 'cliente/:idUser', component:ClienteComponent},
-  { path: 'myProfilec/:idCliente', component:ProfileclienteComponent}
+  { path: 'myProfilec/:idUser', component:ProfileclienteComponent},
+  { path: 'mytarjetac/:idCliente', component:TarjetaClienteComponent},
+  { path: 'agregartc/:idCliente', component:AgregartcComponent}
   //{ path: '**', redirectTo: '/not-found' },
   
 ];

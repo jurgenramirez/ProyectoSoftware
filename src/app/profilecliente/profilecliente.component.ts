@@ -25,8 +25,9 @@ export class ProfileclienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.rutaActiva.snapshot.params.idUser;
+    console.log(this.user);
 
-    this.http.get(`http://34.67.100.60:5000/getCliente?idUsuario=31`).subscribe(data=>{  
+    this.http.get(`http://34.67.100.60:5000/getCliente?idUsuario=${this.user}`).subscribe(data=>{  
       
       this.Clientes = data['result'];
       
