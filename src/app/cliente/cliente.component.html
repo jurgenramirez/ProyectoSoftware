@@ -41,6 +41,7 @@
             <th scope="col"> Precio </th>
             <th scope="col"> Stock </th>
             <th scope="col"> Foto </th>
+            <th>Agregar al carrito</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +50,7 @@
                 <td>{{Producto.precioVenta}}</td>
                 <td>{{Producto.stock}}</td>
                 <td><img src="{{Producto.foto}}"></td>
-                
+                <td><button (click)="addProducto(Producto)" class="btn btn-info">Añadir al carrito</button></td>
             </tr>
         </tbody>
     </table>

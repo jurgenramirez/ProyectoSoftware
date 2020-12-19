@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import {CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-cliente',
@@ -18,7 +19,8 @@ export class ClienteComponent implements OnInit {
 
   constructor(private rutaActiva: ActivatedRoute 
     ,private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private carritoService: CarritoService) { }
 
 
   ngOnInit(): void {
@@ -44,6 +46,16 @@ export class ClienteComponent implements OnInit {
       console.log(this.idCliente);   
   
     });
+
+  }
+
+  addProducto(producto) {
+    
+    
+    this.carritoService.addCarrito(producto);
+    console.log("ok")
+
+    return this.router.navigateByUrl(`/carrito/${this.idCliente}`);
 
   }
 

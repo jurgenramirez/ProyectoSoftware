@@ -8,6 +8,7 @@ import { ClienteComponent} from './cliente/cliente.component';
 import { ProfileclienteComponent } from './profilecliente/profilecliente.component';
 import { TarjetaClienteComponent } from './tarjeta-cliente/tarjeta-cliente.component';
 import { AgregartcComponent } from './agregartc/agregartc.component';
+import { CarritoComponent} from './carrito/carrito.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -23,7 +24,8 @@ export const AppRoutes: Routes = [
   { path: 'cliente/:idUser', component:ClienteComponent},
   { path: 'myProfilec/:idUser', component:ProfileclienteComponent},
   { path: 'mytarjetac/:idCliente', component:TarjetaClienteComponent},
-  { path: 'agregartc/:idCliente', component:AgregartcComponent}
+  { path: 'agregartc/:idCliente', component:AgregartcComponent},
+  { path: 'carrito/:idCliente', component:CarritoComponent}
   //{ path: '**', redirectTo: '/not-found' },
   
 ];
