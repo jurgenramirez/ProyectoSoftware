@@ -5,6 +5,7 @@ import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.co
 import { AddproductoComponent} from './addproducto/addproducto.component';
 import { ReporteProveedorComponent} from './reporte-proveedor/reporte-proveedor.component';
 import { ClienteComponent} from './cliente/cliente.component';
+import { ProfileclienteComponent } from './profilecliente/profilecliente.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -17,7 +18,8 @@ export const AppRoutes: Routes = [
   { path: 'proveedor/:idProducto', component:UpdateProveedorComponent},
   { path: 'producto/addProducto/:idProveedor', component:AddproductoComponent},
   { path: 'prov/reporteventa/:idProveedor', component:ReporteProveedorComponent},
-  { path: 'cliente', component:ClienteComponent},
+  { path: 'cliente/:idUser', component:ClienteComponent},
+  { path: 'myProfilec/:idCliente', component:ProfileclienteComponent}
   //{ path: '**', redirectTo: '/not-found' },
   
 ];

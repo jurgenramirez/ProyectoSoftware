@@ -37,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProveedorComponent } from './update-proveedor/update-proveedor.component';
 import { ReporteProveedorComponent } from './reporte-proveedor/reporte-proveedor.component';
 import { ClienteComponent } from './cliente/cliente.component';
+import { ProfileclienteComponent } from './profilecliente/profilecliente.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ClienteComponent } from './cliente/cliente.component';
     AppComponent,
     GPageNotFoundComponent,
     ReporteProveedorComponent,
-    ClienteComponent
+    ClienteComponent,
+    ProfileclienteComponent
   ],
   imports: [
     BrowserModule,

@@ -60,7 +60,7 @@ export class SigninComponent implements OnInit {
         
       }else if (data.result.rol == 1) {
         console.log(data.result);
-        this.router.navigate(['/cliente']);
+        this.router.navigate(['/cliente',data.result.idUsuario]);
         
         /*
         this.store.dispatch(new AuthActions.SignIn({
