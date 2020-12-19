@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { HttpClient,HttpHeaders, HttpRequest } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-carrito',
@@ -24,6 +25,10 @@ export class CarritoComponent implements OnInit {
   contador: any [];
 
   sign: FormGroup;
+
+  body : string;
+
+
 
   constructor(private carritoService: CarritoService,
     private rutaActiva: ActivatedRoute, 
@@ -50,48 +55,90 @@ export class CarritoComponent implements OnInit {
       
       this.carrito = data;
       this.carrito.forEach(function(item){
-        
         item.cantidad=1
      });
-  
-      console.log('data Carrito')
-      console.log(data);
-      //this.total = this.carritoService.getTotal();
-      this.calcularTotal();
+    
+     this.calcularTotal();
+
     },error => alert(error));
 
   }
 
+  sendPostRequest(data: any): Observable<any> {
 
-  Comprar(){
+    
+    return this.http.post<any>('http://34.66.195.21:5001/pedido', data);
 
-   this.carrito.forEach(function(item){
+  }
+
+  Comprar(){ 
+   
+    const jsonS = {
+              
+      idCliente: this.user,    
+      idTarjeta: this.sign.value.tipo,    
+      direccionEnvio: this.sign.value.direccion,
+      total : this.total,
+      detalle: []
+  
+    };
+
+    this.carrito.forEach(function(item){
+      jsonS.detalle.push({
+        idProducto:item.idProducto,
+        cantidad: item.cantidad,
+        precio: item.precioVenta
+      });
+    });
+
+
+
+
+    
+    
+    /*
+    this.carrito.forEach(element => {
+      jsonS.detalle.push({
+        "idProducto" : element.idProducto,
+        "precio": element.precioVenta
+      });
+    });
+    */
+
+   
+    /*
+    this.carrito.forEach(function(item){
+         
       console.log('**** Producto ****')
       console.log(item.idProducto)
       console.log(item.cantidad)
-   });
+      console.log(item.precioVenta)
+  
+    });
+    console.log(this.total);
+    */
 
    
+    
 
-    // var jsonS = {
+   
+    //this.body= JSON.stringify(jsonS);
+    
+    console.log(JSON.stringify(jsonS)); 
+    this.http.post('http://34.66.195.21:5001/pedido',
+
+    
+    {data: JSON.stringify(jsonS)}
       
-    //   "idCliente": this.user,
-    //   "idTarjeta": this.sign.value.tipo,
-    //   "direccionEnvio": this.sign.value.direccion,
-    //   detalle: []
-    // };
-
-    // this.carrito.forEach(element => {
-    //   jsonS.detalle.push({
-    //     "idProducto" : element.idProducto,
-    //     "precio": element.precioVenta
-    //   });
-    // });
-
-
-    // //console.log(jsonS);
-    // console.log(JSON.stringify(jsonS));
-  
+    ).subscribe((response) => {
+      console.log(response);
+      
+    })
+    
+    
+    
+    //alert("Productos Comprados");
+     
   }
 
   actualizarCantidad(valor){
