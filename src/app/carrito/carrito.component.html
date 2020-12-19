@@ -52,7 +52,7 @@
                             <td>{{c.nombre}}</td>
                             <td>{{c.precioVenta}}</td>
                             <td>
-                                <input type="number" id={{c.idProducto}} class="contador" name="contador" value = "1" formControlName="contador">
+                                <input type="number" id={{c.idProducto}} class="contador" name="contador" value = "{{c.cantidad}}" (mouseup)="actualizarCantidad2($event.target.value, c.idProducto)" >
                             </td>
                         </tr>
                     </tbody>

@@ -49,35 +49,80 @@ export class CarritoComponent implements OnInit {
     this.carritoService.getCarrito().subscribe(data => {
       
       this.carrito = data;
-      this.total = this.carritoService.getTotal();
-      
+      this.carrito.forEach(function(item){
+        
+        item.cantidad=1
+     });
+  
+      console.log('data Carrito')
+      console.log(data);
+      //this.total = this.carritoService.getTotal();
+      this.calcularTotal();
     },error => alert(error));
 
   }
 
+
   Comprar(){
 
-    
+   this.carrito.forEach(function(item){
+      console.log('**** Producto ****')
+      console.log(item.idProducto)
+      console.log(item.cantidad)
+   });
 
-    var jsonS = {
+   
+
+    // var jsonS = {
       
-      "idCliente": this.user,
-      "idTarjeta": this.sign.value.tipo,
-      "direccionEnvio": this.sign.value.direccion,
-      detalle: []
-    };
+    //   "idCliente": this.user,
+    //   "idTarjeta": this.sign.value.tipo,
+    //   "direccionEnvio": this.sign.value.direccion,
+    //   detalle: []
+    // };
 
-    this.carrito.forEach(element => {
-      jsonS.detalle.push({
-        "idProducto" : element.idProducto,
-        "precio": element.precioVenta
-      });
-    });
+    // this.carrito.forEach(element => {
+    //   jsonS.detalle.push({
+    //     "idProducto" : element.idProducto,
+    //     "precio": element.precioVenta
+    //   });
+    // });
 
 
-    //console.log(jsonS);
-    console.log(JSON.stringify(jsonS));
+    // //console.log(jsonS);
+    // console.log(JSON.stringify(jsonS));
   
+  }
+
+  actualizarCantidad(valor){
+    this.carrito.forEach(function(item){
+ 
+      console.log(valor);
+      // console.log(id);
+      // if(item.idProducto==id){
+      //   item.cantidad =valor;
+      // }
+      
+   });
+   
+  }
+  calcularTotal(){
+    let contabi=0;
+    this.carrito.forEach(function(item){
+      contabi += item.precioVenta * item.cantidad;
+   });
+    this.total = contabi;
+  }
+  actualizarCantidad2(cantidad,id){
+    this.carrito.forEach(function(item){
+ 
+      if(item.idProducto==id){
+        item.cantidad =cantidad;
+        
+      }
+      
+   });
+   this.calcularTotal();
   }
 
 }
