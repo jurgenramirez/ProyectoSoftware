@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+    users-service:     
+        image: node
+        working_dir: '/app'
+        environment:
+            - PORT=4200
+            - HOST=0.0.0.0               
+        command: [ "npm", "start"]    
+        container_name: sa-p1-cliente
+        restart: on-failure
+        ports:
+            - 5003:4200
+        volumes:
+            - ./:/app    

@@ -43,28 +43,34 @@ export class SigninComponent implements OnInit {
 
 
   onSubmitted() {
-    console.log('Hola mUndo');
+    console.log('Hola mUndo xxxx');
 
-    /*
-    this.store.dispatch(new AuthActions.SignIn({
-      email: this.signInForm.value.email,
-      password: this.signInForm.value.password
-    }));
-    */
+    
+  
   
     let log = new Login();
     log.email = this.signInForm.value.email;
     log.password = this.signInForm.value.password;
 
     this.loginservice.login(log).subscribe(data=>{
-
-      console.log(data);
+      console.log('inicio testeo');
       if(data.result == "Credenciales inválidas"){
         //this.router.navigate(['/login']);
         console.log('INVALIDO');
         
       }else if (data.result.rol == 1) {
-        //this.router.navigate(['/browse']);
+        console.log(data.result);
+        this.router.navigate(['/cliente',data.result.idUsuario]);
+        
+        /*
+        this.store.dispatch(new AuthActions.SignIn({
+          email: this.signInForm.value.email,
+          password: this.signInForm.value.password,
+          data:data.result
+
+        }));
+        */
+      
         console.log('Bienvenido Cliente');
       }else if (data.result.rol == 2) {
         this.router.navigate(['/','proveedores',data.result.idUsuario]);

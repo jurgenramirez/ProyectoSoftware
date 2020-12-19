@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
   export class ApiService {
     headers: HttpHeaders;
-    url: string ='http://34.72.4.108:'
+    url: string ='http://34.67.100.60:'
     constructor(private http: HttpClient) { }
 
     get(endpoint: string, reqOpts?:any) {    

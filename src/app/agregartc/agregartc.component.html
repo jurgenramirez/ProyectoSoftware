@@ -1,0 +1,57 @@
+<div class="cliente container">
+
+
+    <div class="form row">
+        <div class="col-md-12">
+            <br>
+            <br>
+            <br>
+            <h2>
+              Agregar Tarjeta
+            </h2>
+            <hr>
+        </div>
+    </div>
+    
+
+    <div class="form row">
+             
+        <div class="col-md-12">
+
+            <form [formGroup]="sign" (ngSubmit)="agregarTarjeta()"> 
+                
+
+
+                <div class="form-group">
+                    <label for="numero">Numero Tarjeta</label>
+                    <input type="text" id="numero" class="form-control" name="numero" formControlName="numero" >
+                </div>
+          
+                
+                <div class="form-group">
+                    <label for="fe">Fecha Expiracion</label>
+                    <input type="date" id="fe" class="form-control" name="fe" formControlName="fe" >                  
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="clave">Clave</label>
+                    <input type="text" id="clave" class="form-control" name="clave" formControlName="clave" >                  
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-info" type="submit">
+                        Agregar Tarjeta
+                      </button>
+                    </div>
+                </div>
+
+             </form> 
+
+        </div>
+
+    </div>
+    
+</div>
+
