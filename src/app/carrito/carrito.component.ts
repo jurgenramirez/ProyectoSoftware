@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
-
+  headers: HttpHeaders;
   carrito: Array<Producto> = [];
   private subscription: Subscription;
   total: number;
@@ -66,8 +66,11 @@ export class CarritoComponent implements OnInit {
 
   sendPostRequest(data: any): Observable<any> {
 
-    
-    return this.http.post<any>('http://34.66.195.21:5001/pedido', data);
+    return this.http.post('http://34.66.195.21:5001/pedido', data, {
+      headers: this.headers
+    });
+
+    // return this.http.post<any>('http://34.66.195.21:5001/pedido', data);
 
   }
 
@@ -125,15 +128,18 @@ export class CarritoComponent implements OnInit {
     //this.body= JSON.stringify(jsonS);
     
     console.log(JSON.stringify(jsonS)); 
-    this.http.post('http://34.66.195.21:5001/pedido',
+    // this.http.post('http://34.66.195.21:5001/pedido',
 
     
-    {data: JSON.stringify(jsonS)}
+    // {data: JSON.stringify(jsonS)}
       
-    ).subscribe((response) => {
-      console.log(response);
+    // ).subscribe((response) => {
+    //   console.log(response);
       
-    })
+    // })
+    this.sendPostRequest(jsonS).subscribe((response)=>{
+      console.log(response)
+    });
     
     
     
