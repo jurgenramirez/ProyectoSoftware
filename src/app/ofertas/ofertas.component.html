@@ -1,0 +1,53 @@
+<div class="ofertas container">
+
+    <div class="form row">
+        <div class="col-md-12">
+            <br>
+            <h2>
+              Subastas Activas
+            </h2>
+            <hr>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"> Precio </th>
+            <th scope="col"> FechaInicial </th>
+            <th scope="col"> FechaFinal </th>
+            <th scope="col"> Producto </th>
+            <th scope="col"> Foto </th>
+            <th scope="col"> Categoria </th>    
+            <th scope="col"> Ofertar </th>
+            <th scope="col"> Ver Ofertas </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let subasta of Subastas">
+                <td>{{subasta.precio}}</td>
+                <td>{{subasta.fechaInicial}}</td>
+                <td>{{subasta.fechaFinal}}</td>
+                <td>{{subasta.producto}}</td>
+                <td><img src="{{subasta.foto}}"></td>
+                <td>{{subasta.categoria}}</td>
+
+                <td>
+                    <button class="btn btn-info" 
+                    [routerLink]="['/', 'ofertar', subasta.idSubasta , idCliente]">
+                      Ofertar
+                    </button>
+                </td>
+
+                <td>
+                  <button class="btn btn-info" 
+                  [routerLink]="['/', 'verofertas', subasta.idSubasta]">
+                    Ver Ofertas
+                  </button>
+              
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

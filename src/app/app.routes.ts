@@ -11,6 +11,9 @@ import { AgregartcComponent } from './agregartc/agregartc.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { SubastaComponent } from './subasta/subasta.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
+import { OfertasComponent } from './ofertas/ofertas.component';
+import { OfertarComponent } from './ofertar/ofertar.component';
+import { VerofertaComponent } from './veroferta/veroferta.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -30,6 +33,9 @@ export const AppRoutes: Routes = [
   { path: 'carrito/:idCliente', component:CarritoComponent},
   { path: 'subasta/:idUser' , component:SubastaComponent},
   { path: 'favoritos/:idCliente' , component:FavoritosComponent},
+  { path: 'ofertas/:idUser' , component:OfertasComponent},
+  { path: 'ofertar/:idSubasta/:idCliente' , component:OfertarComponent},
+  { path: 'verofertas/:idSubasta' , component:VerofertaComponent},
 
   //{ path: '**', redirectTo: '/not-found' },
   

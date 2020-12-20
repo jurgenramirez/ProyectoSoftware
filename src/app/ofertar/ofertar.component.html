@@ -1,0 +1,37 @@
+<div class="ofertar container">
+
+    <div class="form row">
+        <div class="col-md-12">
+            <br>
+            <h2>
+              Realizar Oferta a la subasta
+            </h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="form row">
+             
+        <div class="col-md-12">
+
+            <form [formGroup]="sign" (ngSubmit)="agregarOferta()"> 
+
+                <div class="form-group">
+                    <label for="numero">Precio para a Ofertar</label>
+                    <input type="text" id="numero" class="form-control" name="numero" formControlName="numero" >
+                </div>
+          
+                <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-info" type="submit">
+                        OFertar
+                      </button>
+                    </div>
+                </div>
+             </form> 
+
+        </div>
+
+    </div>
+    
+</div>
