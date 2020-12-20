@@ -43,6 +43,9 @@ import { AgregartcComponent } from './agregartc/agregartc.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { SubastaComponent } from './subasta/subasta.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
+import { OfertasComponent } from './ofertas/ofertas.component';
+import { OfertarComponent } from './ofertar/ofertar.component';
+import { VerofertaComponent } from './veroferta/veroferta.component';
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
     AgregartcComponent,
     CarritoComponent,
     SubastaComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    OfertasComponent,
+    OfertarComponent,
+    VerofertaComponent
   ],
   imports: [
     BrowserModule,

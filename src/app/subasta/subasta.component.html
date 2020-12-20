@@ -9,6 +9,84 @@
             <hr>
         </div>
     </div>
+    <table class="table table-striped table-bordered"   >
+        <thead>
+            <tr>
+                <th>
+                    <button class="btn btn-info" [routerLink]="['/', 'ofertas', user]">Subastas Activas</button>
+                </th>
+            </tr>
+        </thead>        
+    </table>
+
+    <div class="form row">
+             
+        <div class="col-md-12">
+
+            <form [formGroup]="sign" (ngSubmit)="agregarSubasta()"> 
+                
+
+                <div class="form-group">
+        
+                    <label for="tipo">Seleccione Categoria</label>
+                  
+                    <select class="form-control" formControlName="tipo" name="tipo" >
+                  
+                      <option value="{{categoria.idCategoria}}" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
+             
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre" >
+                </div>
+
+                <div class="form-group">
+                    <label for="pv">Precio Venta</label>
+                    <input type="text" id="pv" class="form-control" name="pv" formControlName="pv" >                  
+                </div>
+
+                <div class="form-group">
+                    <label for="pi">Precio Inicial</label>
+                    <input type="text" id="pi" class="form-control" name="pi" formControlName="pi" >                  
+                </div>
+          
+                
+                <div class="form-group">
+                    <label for="fe">Fecha Final</label>
+                    <input type="datetime-local" id="fe" class="form-control" name="fe" formControlName="fe" >                  
+                    
+                </div>
+
+                <div class="form-group">
+                    
+                    <fieldset class="form-group">
+          
+                        <label>Subir Imagen</label>
+                        <div class="custom-file fileInputProfileWrap">
+                            <input type="file" (change)="fileChangeEvent($event); $event.stopPropagation();" class="fileInputProfile">
+                        </div>
+                    </fieldset>
+                   
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-info" type="submit">
+                        Agregar Subasta
+                      </button>
+                    </div>
+                </div>
+
+             </form> 
+
+        </div>
+
+    </div>
 
     
 </div>
