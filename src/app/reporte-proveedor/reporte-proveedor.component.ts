@@ -18,6 +18,7 @@ export class ReporteProveedorComponent implements OnInit {
   x: "";
   y: "";
 
+  Ventas: any[] = [];
   constructor(private rutaActiva: ActivatedRoute
     ,private router: Router, private http: HttpClient) { }
 
@@ -25,17 +26,13 @@ export class ReporteProveedorComponent implements OnInit {
 
     this.user = this.rutaActiva.snapshot.params.idProveedor;
 
-    this.http.post('http://34.67.194.244:5002/getresumen',
-    {
-      idproveedor: this.user,
-    }).subscribe((data) => {
-      this.users = data['result'];
-      this.x = this.users['idtotalcantidad'];
-      this.y = this.users['total'];
-      //this.id = this.users['total'];
-      console.log(this.users);
-      
-    })
+    this.http.get(`http://34.66.195.21:5001/ventas?idProveedor=${this.user}`).subscribe(data=>{  
+      this.Ventas = data['result'];
+      console.log(this.Ventas);
+    });
+
+
+
 
   }
 }

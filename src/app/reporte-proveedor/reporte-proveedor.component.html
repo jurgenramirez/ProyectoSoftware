@@ -1,4 +1,4 @@
-<div class="reporteventa container ">
+<div class="rventa container ">
 
     <div class="row">
       <div class="col-md-9">
@@ -14,17 +14,24 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col"> Total de articulos vendidos </th>
-            <th scope="col"> Total </th>
+            
+            <th scope="col"> Producto </th>
+            
+            <th scope="col"> Foto </th>    
+            <th scope="col"> unidadesVendidas </th>
+            <th scope="col"> totalVentas </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{x}}</td>
-            <td>{{y}}</td>
-          </tr>
+            <tr *ngFor="let venta of Ventas">
+                <td>{{venta.producto}}</td>
+                <td><img src="{{venta.foto}}"></td>
+                <td>{{venta.unidadesVendidas}}</td>
+                <td>{{venta.totalVentas}}</td>
+              
+            </tr>
         </tbody>
-      </table>
+    </table>
 
     </div>
     
