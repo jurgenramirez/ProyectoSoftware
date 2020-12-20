@@ -14,6 +14,7 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { OfertarComponent } from './ofertar/ofertar.component';
 import { VerofertaComponent } from './veroferta/veroferta.component';
+import { SubastaganadaComponent } from './subastaganada/subastaganada.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -36,6 +37,7 @@ export const AppRoutes: Routes = [
   { path: 'ofertas/:idUser' , component:OfertasComponent},
   { path: 'ofertar/:idSubasta/:idCliente' , component:OfertarComponent},
   { path: 'verofertas/:idSubasta' , component:VerofertaComponent},
+  { path: 'subastaganada/:idSubasta' , component:SubastaganadaComponent},
 
   //{ path: '**', redirectTo: '/not-found' },
   

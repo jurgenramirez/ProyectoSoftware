@@ -21,6 +21,7 @@
             <th scope="col"> Categoria </th>    
             <th scope="col"> Ofertar </th>
             <th scope="col"> Ver Ofertas </th>
+            <th scope="col"> Subasta Ganadora </th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +47,15 @@
                   </button>
               
                 </td>
+
+                <td>
+                  <button class="btn btn-info" 
+                  [routerLink]="['/', 'subastaganada', subasta.idSubasta]">
+                    Subasta Ganada
+                  </button>
+              
+                </td>
+                
 
             </tr>
         </tbody>

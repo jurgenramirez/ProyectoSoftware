@@ -46,6 +46,7 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { OfertarComponent } from './ofertar/ofertar.component';
 import { VerofertaComponent } from './veroferta/veroferta.component';
+import { SubastaganadaComponent } from './subastaganada/subastaganada.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { VerofertaComponent } from './veroferta/veroferta.component';
     FavoritosComponent,
     OfertasComponent,
     OfertarComponent,
-    VerofertaComponent
+    VerofertaComponent,
+    SubastaganadaComponent
   ],
   imports: [
     BrowserModule,
