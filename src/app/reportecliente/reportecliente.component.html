@@ -1,0 +1,46 @@
+<div class="rCliente container ">
+
+    <div class="row">
+      <div class="col-md-9">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Clientes</h1>
+        <br>
+          <p>
+            Bienvenido al reporte de Clientes
+          </p>
+      
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"> Nombre </th>
+            <th scope="col"> Apellido </th>
+            <th scope="col"> Producto </th>
+            <th scope="col"> Cantidad </th>
+            <th scope="col"> Precio </th>
+            <th scope="col"> Total </th>    
+            <th scope="col"> Fecha </th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reporte of Reportes">
+                <td>{{reporte.nombre}}</td>
+                <td>{{reporte.apellido}}</td>
+                <td>{{reporte.producto}}</td>
+                <td>{{reporte.cantidad}}</td>
+                <td>{{reporte.precio}}</td>
+                <td>{{reporte.total}}</td>
+                <td>{{reporte.fecha}}</td>
+                
+
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
