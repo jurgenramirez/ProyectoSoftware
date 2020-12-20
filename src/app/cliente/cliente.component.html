@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered"   >
         <thead>
             <tr>
                 <th>
@@ -23,10 +23,13 @@
                     <button class="btn btn-info" [routerLink]="['/', 'mytarjetac', idCliente]">MyTarjeta</button>
                 </th>
                 <th>
-                    Boton
+                    <button class="btn btn-info" [routerLink]="['/', 'carrito', idCliente]">Carrito</button>
                 </th>
                 <th>
-                    Boton
+                    <button class="btn btn-info" [routerLink]="['/', 'favoritos', idCliente]">Favoritos</button>
+                </th>
+                <th>
+                    <button class="btn btn-info" [routerLink]="['/', 'subasta', user]">Subastas</button>
                 </th>
             </tr>
         </thead>
@@ -42,6 +45,7 @@
             <th scope="col"> Stock </th>
             <th scope="col"> Foto </th>
             <th>Agregar al carrito</th>
+            <th>Favoritos</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +55,7 @@
                 <td>{{Producto.stock}}</td>
                 <td><img src="{{Producto.foto}}"></td>
                 <td><button (click)="addProducto(Producto)" class="btn btn-info">Añadir al carrito</button></td>
+                <td><button class="btn" (click)="favoritos(Producto)"><i class="fa fa-heart"></i></button></td>
             </tr>
         </tbody>
     </table>

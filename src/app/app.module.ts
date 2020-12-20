@@ -41,6 +41,8 @@ import { ProfileclienteComponent } from './profilecliente/profilecliente.compone
 import { TarjetaClienteComponent } from './tarjeta-cliente/tarjeta-cliente.component';
 import { AgregartcComponent } from './agregartc/agregartc.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { SubastaComponent } from './subasta/subasta.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { CarritoComponent } from './carrito/carrito.component';
     ProfileclienteComponent,
     TarjetaClienteComponent,
     AgregartcComponent,
-    CarritoComponent
+    CarritoComponent,
+    SubastaComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,

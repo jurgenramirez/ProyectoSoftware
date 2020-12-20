@@ -49,6 +49,25 @@ export class ClienteComponent implements OnInit {
 
   }
 
+  favoritos(producto){
+
+    console.log(producto.idProducto);
+    console.log(this.idCliente);
+    
+    this.http.post('http://34.66.195.21:5001/favorito',
+    {
+      idProducto: producto.idProducto,
+      idCliente: this.idCliente,
+
+    }).subscribe((response) => {
+      console.log(response);
+      
+    })
+
+    return this.router.navigateByUrl(`/favoritos/${this.idCliente}`);
+
+  }
+
   addProducto(producto) {
     
     

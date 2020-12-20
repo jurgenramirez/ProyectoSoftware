@@ -1,0 +1,32 @@
+<div class="favoritos container">
+
+    <div class="form row">
+        <div class="col-md-12">
+            <br>
+            <h2>
+              Favoritos
+            </h2>
+            <hr>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Nombre  </th>
+            <th scope="col"> Agregar al Carrito </th>
+            <th scope="col"> Eliminar </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Favorito of Favoritos">
+                <td>{{Favorito.idProducto}}</td>
+                <td></td>
+                <td><button class="btn" ></button><i class="fa fa-shopping-cart"></i>
+                <td><button class="btn btn-info" (click)="sendDeleteRequestFavoritos(Favorito.idFavorito)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
