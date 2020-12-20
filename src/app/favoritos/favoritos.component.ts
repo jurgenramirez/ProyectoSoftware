@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpClient,HttpHeaders, HttpRequest } from '@angular/common/http';
+import { FooterComponent } from '../footer/footer.component';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -15,7 +17,7 @@ export class FavoritosComponent implements OnInit {
   Favoritos:any[];
   fav: Array<any> = [];
   productos: any[];
-  constructor(private rutaActiva: ActivatedRoute, private http: HttpClient) { }
+  constructor(private rutaActiva: ActivatedRoute,private router: Router, private http: HttpClient,private carritoService: CarritoService) { }
 
   ngOnInit(): void {
     this.user = this.rutaActiva.snapshot.params.idCliente;
@@ -48,4 +50,11 @@ export class FavoritosComponent implements OnInit {
 
   }
 
+  addToCar(producto){
+    this.carritoService.addCarrito(producto);
+    console.log(producto)
+    console.log("ok")
+
+    return this.router.navigateByUrl(`/carrito/${this.user}`);
+  }
 }
