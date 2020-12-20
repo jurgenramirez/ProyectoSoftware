@@ -34,7 +34,7 @@ export class ClienteComponent implements OnInit {
     this.http.get(`http://34.66.195.21:5001/productos`).subscribe(data=>{  
       
       this.Productos = data['result'];
-       //console.log(this.Productos);
+       console.log(this.Productos);
     });
 
     this.http.get(`http://34.67.100.60:5000/getCliente?idUsuario=${this.user}`).subscribe(data=>{
@@ -72,10 +72,11 @@ export class ClienteComponent implements OnInit {
     
     
     this.carritoService.addCarrito(producto);
+    console.log(producto)
     console.log("ok")
 
     return this.router.navigateByUrl(`/carrito/${this.idCliente}`);
-
+    
   }
 
 }

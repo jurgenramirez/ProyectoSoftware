@@ -15,7 +15,13 @@ import { Injectable } from '@angular/core';
           headers: this.headers
       });
     }
-  
+    get2(endpoint: string, reqOpts?:any) {    
+        return this.http.get( endpoint, {
+            params: reqOpts,
+            headers: this.headers
+        });
+      }
+    
     post(endpoint: string, body:any, reqOpts?:any)  {
         return this.http.post( this.url+endpoint, body, {
             params: reqOpts,
