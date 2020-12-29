@@ -16,9 +16,12 @@ import { OfertarComponent } from './ofertar/ofertar.component';
 import { VerofertaComponent } from './veroferta/veroferta.component';
 import { SubastaganadaComponent } from './subastaganada/subastaganada.component';
 import { ReporteclienteComponent} from './reportecliente/reportecliente.component';
+import { LoginSbComponent } from './login-sb/login-sb.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
+  { path: 'login-sb', component: LoginSbComponent },
+
   { path: 'account', loadChildren: './account/account.module#AccountModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
