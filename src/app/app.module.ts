@@ -50,6 +50,7 @@ import { SubastaganadaComponent } from './subastaganada/subastaganada.component'
 import { ReporteclienteComponent } from './reportecliente/reportecliente.component';
 import { LoginSbComponent } from './login-sb/login-sb.component';
 import { RegisterSbComponent } from './register-sb/register-sb.component';
+import { EsbclienteComponent } from './esbcliente/esbcliente.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { RegisterSbComponent } from './register-sb/register-sb.component';
     SubastaganadaComponent,
     ReporteclienteComponent,
     LoginSbComponent,
-    RegisterSbComponent
+    RegisterSbComponent,
+    EsbclienteComponent
   ],
   imports: [
     BrowserModule,
