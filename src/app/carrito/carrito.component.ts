@@ -88,9 +88,11 @@ export class CarritoComponent implements OnInit {
 
     this.carrito.forEach(function(item){
       jsonS.detalle.push({
-        idProducto:item.idProducto,
+        //idProducto:item.idProducto,
+        idProducto:item.id_producto,
         cantidad: item.cantidad,
-        precio: item.precioVenta
+        //precio: item.precioVenta
+        precio: item.precio_venta
       });
     });
 
@@ -162,14 +164,16 @@ export class CarritoComponent implements OnInit {
   calcularTotal(){
     let contabi=0;
     this.carrito.forEach(function(item){
-      contabi += item.precioVenta * item.cantidad;
+      //contabi += item.precioVenta * item.cantidad;
+      contabi += item.precio_venta * item.cantidad;
    });
     this.total = contabi;
   }
   actualizarCantidad2(cantidad,id){
     this.carrito.forEach(function(item){
  
-      if(item.idProducto==id){
+      //if(item.idProducto==id){
+      if(item.id_producto==id){
         item.cantidad =cantidad;
         
       }

@@ -24,7 +24,7 @@ export class CarritoService {
   }
 
   getTotal() {
-    return this.itemsCarrito.reduce((total, producto: Producto) => { return total + producto.precioVenta ; }, 0);
+    return this.itemsCarrito.reduce((total, producto: Producto) => { return total + producto.precio_venta ; }, 0);
   }
 
 }

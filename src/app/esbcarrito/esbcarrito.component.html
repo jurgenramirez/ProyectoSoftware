@@ -9,4 +9,62 @@
         </div>
     </div>
 
+    <div class="form row">
+             
+        <div class="col-md-12">
+
+            <form [formGroup]="sign" (ngSubmit)="Comprar()"> 
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"> Nombre Producto </th>
+                        <th scope="col"> Descripcion </th>
+                        <th scope="col"> Stock </th>
+                        <th scope="col"> Foto </th>
+                        <th scope="col"> Precio </th>
+                        <th scope="col"> Cantidad </th>
+                        
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of carrito">
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.descripcion}}</td>
+                            <td>{{c.stock}}</td>
+                            <td><img src="{{c.foto}}"></td>
+                            <td>{{c.precio_venta}}</td>
+                            
+                            
+                            <td>
+                                <input type="number" id={{c.id_producto}} class="contador" name="contador" value = "{{c.cantidad}}" (mouseup)="actualizarCantidad2($event.target.value, c.id_producto)" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <div class="form row">
+                    <div class="col-md-12">
+                        <h3>
+                          Total Q{{total}}
+                        </h3>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                      <button class="btn btn-info" type="submit">
+                        Comprar
+                      </button>
+                    </div>
+                </div>
+
+             </form> 
+
+        </div>
+
+    </div>
+
 </div>
