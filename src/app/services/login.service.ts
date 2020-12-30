@@ -24,6 +24,10 @@ export class LoginService {
     return this.apiTiendas.post(tienda,'/login-cliente', datos);
   }
   
+  loginTiendasProv(datos: any,tienda): Observable<any> {
+    return this.apiTiendas.post(tienda,'/login-proveedor', datos);
+  }
+  
 
   
 }

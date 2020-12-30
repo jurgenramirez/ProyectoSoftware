@@ -53,6 +53,8 @@ import { RegisterSbComponent } from './register-sb/register-sb.component';
 import { EsbclienteComponent } from './esbcliente/esbcliente.component';
 import { EsbcarritoComponent } from './esbcarrito/esbcarrito.component';
 import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
+import { LoginprovEsbComponent } from './loginprov-esb/loginprov-esb.component';
+import { EsbproveedorComponent } from './esbproveedor/esbproveedor.component';
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { EsbverproductoComponent } from './esbverproducto/esbverproducto.compone
     RegisterSbComponent,
     EsbclienteComponent,
     EsbcarritoComponent,
-    EsbverproductoComponent
+    EsbverproductoComponent,
+    LoginprovEsbComponent,
+    EsbproveedorComponent
   ],
   imports: [
     BrowserModule,

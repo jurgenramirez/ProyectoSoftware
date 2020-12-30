@@ -22,10 +22,13 @@ import { RegisterSbComponent } from './register-sb/register-sb.component';
 import { EsbclienteComponent } from './esbcliente/esbcliente.component';
 import { EsbcarritoComponent} from './esbcarrito/esbcarrito.component';
 import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
+import { LoginprovEsbComponent } from './loginprov-esb/loginprov-esb.component';
+import { EsbproveedorComponent } from './esbproveedor/esbproveedor.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
   { path: 'login-sb', component: LoginSbComponent },
+  { path: 'loginprov-esb', component: LoginprovEsbComponent },
   { path: 'register-sb', component: RegisterSbComponent },
 
   { path: 'account', loadChildren: './account/account.module#AccountModule' },
@@ -53,6 +56,7 @@ export const AppRoutes: Routes = [
 
   //ESB
   { path: 'esb/cliente', component:EsbclienteComponent},
+  { path: 'esb/proveedor', component:EsbproveedorComponent},
   { path: 'esb/carrito', component:EsbcarritoComponent},
   { path: 'esb/verproducto/:idProducto', component:EsbverproductoComponent},
 
