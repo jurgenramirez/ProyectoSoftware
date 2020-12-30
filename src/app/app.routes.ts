@@ -24,6 +24,7 @@ import { EsbcarritoComponent} from './esbcarrito/esbcarrito.component';
 import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
 import { LoginprovEsbComponent } from './loginprov-esb/loginprov-esb.component';
 import { EsbproveedorComponent } from './esbproveedor/esbproveedor.component';
+import { EsbclienteproductoComponent } from './esbclienteproducto/esbclienteproducto.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -58,6 +59,7 @@ export const AppRoutes: Routes = [
   { path: 'esb/cliente', component:EsbclienteComponent},
   { path: 'esb/proveedor', component:EsbproveedorComponent},
   { path: 'esb/carrito', component:EsbcarritoComponent},
+  { path: 'esb/cliente/producto', component:EsbclienteproductoComponent},
   { path: 'esb/verproducto/:idProducto', component:EsbverproductoComponent},
 
   //{ path: '**', redirectTo: '/not-found' },

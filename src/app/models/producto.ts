@@ -12,3 +12,12 @@ export class ProductoGlobal {
     precio_venta:number;
     foto:string
 }
+export class ProductoGlobalCli {
+    id_cliente: number;
+    nombre: string;
+    descripcion: string;
+    stock:number;
+    precio_venta:number;
+    foto:string
+}
+
