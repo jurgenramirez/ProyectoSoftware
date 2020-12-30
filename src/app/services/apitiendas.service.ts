@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +20,7 @@ export class ApiTiendasService {
         '',
         '',
         'http://sa-g9.us-e2.cloudhub.io',
-        '',
+        'http://34.73.157.172:5005',
         '',
         '',
         '',
@@ -30,7 +31,9 @@ export class ApiTiendasService {
         ''];
     constructor(private http: HttpClient) { }
 
-    get(tienda: number,endpoint: string, reqOpts?: any) {
+    get(tienda: number,endpoint: string, reqOpts?: any): Observable<any> {
+        console.log('tiendas get')
+        console.log(this.urlarr[tienda])
         return this.http.get(this.urlarr[tienda] + endpoint, {
             params: reqOpts,
             headers: this.headers
@@ -44,7 +47,6 @@ export class ApiTiendasService {
     }
 
     post(tienda: number,endpoint: string, body: any, reqOpts?: any) {
-        console.log('post estoy aca')
         console.log(tienda);
         console.log(this.urlarr[tienda]);
         return this.http.post(this.urlarr[tienda] + endpoint, body, {
@@ -52,6 +54,15 @@ export class ApiTiendasService {
             headers: this.headers
         });
     }
+    post2(tienda: number,endpoint: string, body: any, reqOpts?: any): Observable<any>{
+        console.log(tienda);
+        console.log(this.urlarr[tienda]);
+        return this.http.post(this.urlarr[tienda] + endpoint, body, {
+            params: reqOpts,
+            headers: this.headers
+        });
+    }
+
 
     put(tienda:number,endpoint: string, body: any, reqOpts?: any) {
         return this.http.put(this.urlarr[tienda] + endpoint, body, {

@@ -49,6 +49,7 @@ import { VerofertaComponent } from './veroferta/veroferta.component';
 import { SubastaganadaComponent } from './subastaganada/subastaganada.component';
 import { ReporteclienteComponent } from './reportecliente/reportecliente.component';
 import { LoginSbComponent } from './login-sb/login-sb.component';
+import { RegisterSbComponent } from './register-sb/register-sb.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { LoginSbComponent } from './login-sb/login-sb.component';
     VerofertaComponent,
     SubastaganadaComponent,
     ReporteclienteComponent,
-    LoginSbComponent
+    LoginSbComponent,
+    RegisterSbComponent
   ],
   imports: [
     BrowserModule,

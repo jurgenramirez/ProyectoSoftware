@@ -1,0 +1,168 @@
+<div class="signup container">
+
+    <div class="title row">
+      <div class="col-md-4">
+        <img src="../../../assets/key.png" alt="login key">
+      </div>
+      <div class="col-md-8">
+        <p>SIGN UP</p>
+        <span>Bienvenido a GTBuY</span>
+      </div>
+  
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngFor="let e of (authState | async).errors">
+          <div *ngIf="e.errorEffect == 'SIGN_IN'" class="alert-warning">
+            <div *ngIf="e.error.status === 400">Credenciales erroneos</div>
+            <div *ngIf="e.error.status === 401">401 Error</div>
+            <div *ngIf="e.error.status === 500 || e.error.status === 0">Errror interno! Porfavor pongase en contacto son soporte tecnico
+              team.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+    <div class="form row">
+    
+      <div class="col-md-12">
+    
+        <div *ngIf="(authState | async).loading" class="loader"></div>
+    
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmitted()">
+  
+  
+          
+          
+          <div class="form-group">
+          
+            <label for="tipo">Seleccione Un Tipo</label>
+          
+            <select class="form-control" formControlName="tipo" name="tipo" >
+          
+              <option value="Proveedor">Proveedor</option>
+          
+              <option value="Cliente">Cliente</option>
+          
+            </select>
+        
+        
+          </div>
+  
+          <div class="form-group">
+            <label for="nombre">NOMBRE</label>
+            <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre" [maxlength]="240">
+            <span *ngIf="signUpForm.get('nombre').invalid && signUpForm.get('nombre').touched" class="alert-danger">
+              Porfavor ingrese un nombre
+            </span>
+          </div>
+  
+          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Cliente'">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" class="form-control" name="apellido" formControlName="apellido" [maxlength]="240">
+            <span *ngIf="signUpForm.get('apellido').invalid && signUpForm.get('apellido').touched" class="alert-danger">
+              Porfavor ingrese un Apellido
+            </span>
+          </div>
+  
+          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Cliente'">
+            <label for="celular">Celular</label>
+            <input type="text" id="celular" class="form-control" name="celular" formControlName="celular" [maxlength]="240">
+            <span *ngIf="signUpForm.get('apellido').invalid && signUpForm.get('apellido').touched" class="alert-danger">
+              Ingrese un numero telefonico
+            </span>
+          </div>
+  
+  
+          <div class="form-group">
+            <label for="direccion">Direccion</label>
+            <input type="text" id="direccion" class="form-control" name="direccion" formControlName="direccion" [maxlength]="240">
+            <span *ngIf="signUpForm.get('direccion').invalid && signUpForm.get('direccion').touched" class="alert-danger">
+              Porfavor ingrese una Direccion
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="text" id="email" class="form-control" name="email" formControlName="email" [maxlength]="240">
+            <span *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched" class="alert-danger">
+            Porfavor ingrese un e-mail valido!
+            </span>
+          </div>
+  
+          <div formGroupName="passwordGroup">
+            <div class="form-group">
+              <label for="newPassword">PASSWORD</label>
+              <input type="password" id="newPassword" class="form-control" name="newPassword"
+                formControlName="newPassword" [maxlength]="240">
+              <span
+                *ngIf="signUpForm.get('passwordGroup.newPassword').invalid && signUpForm.get('passwordGroup.newPassword').touched">
+                <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['required']" class="alert-danger">This
+                  field is required!</span>
+                <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['minlength']" class="alert-danger">The
+                 la contrase?a debe ser minimo de 6 caracteres!</span>
+              </span>
+            </div>
+  
+            <div class="form-group">
+              <label for="newPasswordConfirm">PASSWORD REPEAT</label>
+              <input type="password" id="newPasswordConfirm" class="form-control" name="newPasswordConfirm"
+                formControlName="newPasswordConfirm" [maxlength]="240">
+              <span
+                *ngIf="signUpForm.get('passwordGroup.newPasswordConfirm').invalid && signUpForm.get('passwordGroup.newPasswordConfirm').touched">
+                <span *ngIf="signUpForm.get('passwordGroup.newPasswordConfirm').errors['required']"
+                  class="alert-danger">Este campo es requerido!</span>
+  
+              </span>
+              <span *ngIf="signUpForm.get('passwordGroup').invalid && signUpForm.get('passwordGroup').touched">
+                <span
+                  *ngIf="signUpForm.get('passwordGroup').errors != null && signUpForm.get('passwordGroup').errors['noMatch']"
+                  class="alert-danger">Su contrase?a no coincide!</span>
+              </span>
+  
+  
+            </div>
+          </div>
+  
+  
+          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Cliente'">
+            <fieldset class="form-group">
+  
+                <label>Subir Imagen</label>
+         
+                <div class="custom-file fileInputProfileWrap">
+                    <input type="file" (change)="fileChangeEvent($event); $event.stopPropagation();" class="fileInputProfile">
+                  
+                </div>
+     
+            </fieldset>
+           </div>
+      
+  
+  
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-info" type="submit"
+                [disabled]="signUpForm.invalid || signUpForm.pending || (authState | async).loading">Registrarse
+              </button>
+            </div>
+          </div>
+  
+          <div class="signin row">
+            <div class="col-md-12">
+              <a routerLink="/login">
+                <p>Ya tienes una cuenta? <span>Login!</span></p>
+              </a>
+            </div>
+          </div>
+  
+        
+  
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

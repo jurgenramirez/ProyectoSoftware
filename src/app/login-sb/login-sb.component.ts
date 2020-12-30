@@ -4,12 +4,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducers';
 import * as AuthActions from '../store/auth/auth.actions';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 import { LoginService } from '../services/login.service'
 import { LoginGlobal } from 'src/app/models/login';
 import { Router, CanActivate } from '@angular/router';
+import { ApiTiendasService } from '../services/apitiendas.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginSbComponent implements OnInit {
   idUsuario ="";
 
 
-  constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,private router: Router) {
+  constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,private router: Router, private apiTiendas: ApiTiendasService) {
   }
 
   ngOnInit() {
@@ -56,7 +57,15 @@ export class LoginSbComponent implements OnInit {
     let coditienda =this.signInForm.value.tienda
     this.loginservice.loginTiendas(log,coditienda).subscribe(data=>{
       console.log(data);
+        this.apiTiendas.get(coditienda,'/ver-productos').subscribe(data=>{
+          console.log(data);
+        })
+
+      console.log();
     })
+
+
+    
     // this.loginservice.login(log).subscribe(data=>{
     //   console.log('inicio testeo');
     //   if(data.result == "Credenciales inválidas"){
