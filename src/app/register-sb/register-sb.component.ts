@@ -66,7 +66,8 @@ export class RegisterSbComponent implements OnInit {
         console.log(prov);
         this.apiTienda.post2(coditienda,'/registrar-proveedor',prov).subscribe(data=>{
           console.log(data);
-      });
+         });
+        this.set_form_signup();
      
         // this.registerService.registerProveedor(prov).subscribe(data=>{
         //   console.log('se guardo:');
@@ -89,6 +90,7 @@ export class RegisterSbComponent implements OnInit {
          this.apiTienda.post2(coditienda,'/registrar-cliente',cli).subscribe(data=>{
           console.log(data);
          });
+         this.set_form_signup();
         //  this.registerService.registerclient(cli).subscribe(data=>{
         //    console.log('se guardo:');
         //    this.set_form_signup();
@@ -101,6 +103,7 @@ export class RegisterSbComponent implements OnInit {
 
     set_form_signup():void{
       this.signUpForm = this.formBuilder.group({
+        tienda: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required, Validators.pattern(this.emailPattern)]),
         nombre: new FormControl(null, [Validators.required]),
         apellido: new FormControl(null),

@@ -17,14 +17,14 @@ export class ApiTiendasService {
         'http://esb4.djgg.ml:3030', //4 
         'http://34.123.238.63:8280/services/integrador', //5
         '', //6
-        '', //7
-        '', //8
+        'http://68.183.102.104:3000', //7
+        'http://35.232.242.252:9999/', //8
         'http://sa-g9.us-e2.cloudhub.io', //9
         'http://34.73.157.172:5005', //10
-        '',
-        '',
-        '',
-        '',
+        'http://soagrupo11.us-e2.cloudhub.io',//11
+        '',//12
+        'http://www.sa-proyecto.tk',//13
+        '',//14
         '',
         '',
         '',
