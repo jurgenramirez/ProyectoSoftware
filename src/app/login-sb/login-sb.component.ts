@@ -27,8 +27,10 @@ export class LoginSbComponent implements OnInit {
 
   idUsuario ="";
 
+  users: any[] = [];
 
-  constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,private router: Router, private apiTiendas: ApiTiendasService) {
+  constructor(private store: Store<fromApp.AppState>, private loginservice:LoginService,
+    private router: Router, private apiTiendas: ApiTiendasService) {
   }
 
   ngOnInit() {
@@ -45,24 +47,37 @@ export class LoginSbComponent implements OnInit {
 
 
   onSubmitted() {
-    console.log('Hola mUndo xxxx');
 
-    
-  
-  
     let log = new LoginGlobal();
     log.email = this.signInForm.value.email;
     log.contrasena = this.signInForm.value.password;
-    console.log(log);
+    
     let coditienda =this.signInForm.value.tienda
+    
     this.loginservice.loginTiendas(log,coditienda).subscribe(data=>{
       console.log(data);
-        this.apiTiendas.get(coditienda,'/ver-productos').subscribe(data=>{
-          console.log(data);
-        })
 
-      console.log();
-    })
+      if(data.status == "success"){
+
+        console.log("bienvenido");
+
+        this.users = data['data'];
+        //console.log(this.users['id'])
+        
+        localStorage.setItem("currentUser", this.users['id']);
+        localStorage.setItem("currentStore",  coditienda);
+
+        this.router.navigate(['/esb/cliente']);
+
+      }else{
+
+        console.log("Credenciales invalidas")
+
+        alert("CREDENCIALES INVALIDAS")
+
+      }
+
+    });
 
 
     

@@ -11,16 +11,16 @@ export class ApiTiendasService {
     headers: HttpHeaders;
     url: string = 'http://34.67.100.60:';
     urlarr:string [] =[
-        'http://busg1.us-e2.cloudhub.io', 
-        '', 
-        'http://35.206.98.190', 
-        'http://esb4.djgg.ml:3030', 
-        'http://34.123.238.63:8280/services/integrador', 
-        '',
-        '',
-        '',
-        'http://sa-g9.us-e2.cloudhub.io',
-        'http://34.73.157.172:5005',
+        'http://busg1.us-e2.cloudhub.io', //1
+        '', //2
+        'http://35.206.98.190', //3
+        'http://esb4.djgg.ml:3030', //4 
+        'http://34.123.238.63:8280/services/integrador', //5
+        '', //6
+        '', //7
+        '', //8
+        'http://sa-g9.us-e2.cloudhub.io', //9
+        'http://34.73.157.172:5005', //10
         '',
         '',
         '',

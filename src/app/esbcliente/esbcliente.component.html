@@ -1,0 +1,38 @@
+<div class="esbcliente container ">
+
+    <div class="row">
+      <div class="col-md-9">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>ESB CLIENTES</h1>
+        <br>  
+        <p>Bienvenido Cliente </p>
+      
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Nombre Producto </th>
+          <th scope="col"> Descripcion </th>
+          <th scope="col"> Stock </th>
+          <th scope="col"> Precio Venta </th>
+          <th scope="col"> Foto </th>
+
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let Producto of Productos">
+              
+            <td>{{Producto.nombre}}</td>
+            <td>{{Producto.descripcion}}</td>
+            <td>{{Producto.stock}}</td>
+            <td>{{Producto.precio_venta}}</td>
+            <td><img src="{{Producto.foto}}"></td>
+              
+          </tr>
+      </tbody>
+  </table>   
+</div>
