@@ -35,7 +35,34 @@
         <form [formGroup]="signUpForm" (ngSubmit)="onSubmitted()">
   
   
-          
+            <div class="form-group">
+        
+                <label for="tienda">Tienda</label>
+              
+                <select class="form-control" formControlName="tienda" name="tienda" >
+              
+                  <option value="0">Tienda 1</option>
+                  <option value="1">Tienda 2</option>
+                  <option value="2">Tienda 3</option>
+                  <option value="3">Tienda 4</option>
+                  <option value="4">Tienda 5</option>
+                  <option value="5">Tienda 6</option>
+                  <option value="6">Tienda 7</option>
+                  <option value="7">Tienda 8</option>
+                  <option value="8">Tienda 9</option>
+                  <option value="9">Tienda 10</option>
+                  <option value="10">Tienda 11</option>
+                  <option value="11">Tienda 12</option>
+                  <option value="12">Tienda 13</option>
+                  <option value="13">Tienda 14</option>
+                  <option value="14">Tienda 15</option>
+                  <option value="15">Tienda 16</option>
+                  <option value="16">Tienda 17</option>
+              
+                </select>
+            
+            
+              </div>
           
           <div class="form-group">
           
@@ -60,7 +87,7 @@
             </span>
           </div>
   
-          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Cliente'">
+          <div class="form-group"  >
             <label for="apellido">Apellido</label>
             <input type="text" id="apellido" class="form-control" name="apellido" formControlName="apellido" [maxlength]="240">
             <span *ngIf="signUpForm.get('apellido').invalid && signUpForm.get('apellido').touched" class="alert-danger">
@@ -77,13 +104,23 @@
           </div>
   
   
-          <div class="form-group">
+          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Proveedor'">
             <label for="direccion">Direccion</label>
-            <input type="text" id="direccion" class="form-control" name="direccion" formControlName="direccion" [maxlength]="240">
+            <input type="text" id="apellido" class="form-control" name="direccion" formControlName="direccion" [maxlength]="240">
             <span *ngIf="signUpForm.get('direccion').invalid && signUpForm.get('direccion').touched" class="alert-danger">
-              Porfavor ingrese una Direccion
+                ingrese una Direccion 
             </span>
           </div>
+
+          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Proveedor'">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" class="form-control" name="apellido" formControlName="empresa" [maxlength]="240">
+            <span *ngIf="signUpForm.get('empresa').invalid && signUpForm.get('empresa').touched" class="alert-danger">
+             Porfavor ingrese un proveedor
+            </span>
+          </div>
+  
+
           <div class="form-group">
             <label for="email">EMAIL</label>
             <input type="text" id="email" class="form-control" name="email" formControlName="email" [maxlength]="240">
@@ -127,18 +164,7 @@
           </div>
   
   
-          <div class="form-group"  *ngIf="signUpForm.get('tipo').value ==='Cliente'">
-            <fieldset class="form-group">
-  
-                <label>Subir Imagen</label>
          
-                <div class="custom-file fileInputProfileWrap">
-                    <input type="file" (change)="fileChangeEvent($event); $event.stopPropagation();" class="fileInputProfile">
-                  
-                </div>
-     
-            </fieldset>
-           </div>
       
   
   

@@ -18,6 +18,7 @@ import { SubastaganadaComponent } from './subastaganada/subastaganada.component'
 import { ReporteclienteComponent} from './reportecliente/reportecliente.component';
 
 import { LoginSbComponent } from './login-sb/login-sb.component';
+import { RegisterSbComponent } from './register-sb/register-sb.component';
 import { EsbclienteComponent } from './esbcliente/esbcliente.component';
 import { EsbcarritoComponent} from './esbcarrito/esbcarrito.component';
 import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
@@ -25,6 +26,7 @@ import { EsbverproductoComponent } from './esbverproducto/esbverproducto.compone
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
   { path: 'login-sb', component: LoginSbComponent },
+  { path: 'register-sb', component: RegisterSbComponent },
 
   { path: 'account', loadChildren: './account/account.module#AccountModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartModule' },

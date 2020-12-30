@@ -6,3 +6,14 @@ export class Proveedor {
  
 }
 
+export class ProveedorGlobal {
+    nombre: string;
+    apellido: string;
+    direccion: string;
+    email:string;
+    contrasena: string;
+    empresa: string
+}
+
+
+
