@@ -46,7 +46,7 @@ export class EsbclienteComponent implements OnInit {
     console.log(producto)
     console.log("ok")
 
-    //return this.router.navigateByUrl(`/carrito/${this.idCliente}`);
+    return this.router.navigateByUrl(`/esb/carrito`);
     
   }
 
