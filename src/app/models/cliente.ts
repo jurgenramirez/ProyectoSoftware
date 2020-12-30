@@ -7,3 +7,11 @@ export class Cliente {
     foto: string;
     extension: string
 }
+
+export class ClienteGlobal {
+    nombre: string;
+    apellido: string;
+    celular: string;
+    email:string;
+    contrasena: string;
+}
