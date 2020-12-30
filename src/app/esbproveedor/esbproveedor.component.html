@@ -49,7 +49,10 @@
                     <label for="stock">Stock</label>
                     <input type="text" id="stock" class="form-control" name="stock" formControlName="stock" >                  
                 </div>
-
+                <div class="form-group">
+                    <label for="imagen">imagen(url)</label>
+                    <input type="text" id="imagen" class="form-control" name="imagen" formControlName="imagen" >
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                       <button class="btn btn-info" type="submit">
@@ -59,17 +62,7 @@
                 </div>
 
 
-                <div class="form-group">
-                    
-                    <fieldset class="form-group">
-          
-                        <label>Subir Imagen</label>
-                        <div class="custom-file fileInputProfileWrap">
-                            <input type="file" (change)="fileChangeEvent($event); $event.stopPropagation();" class="fileInputProfile">
-                        </div>
-                    </fieldset>
-                   
-                </div>
+              
 
              </form> 
 
