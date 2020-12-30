@@ -16,7 +16,7 @@ export class ApiTiendasService {
         'http://35.206.98.190', //3
         'http://esb4.djgg.ml:3030', //4 
         'http://34.123.238.63:8280/services/integrador', //5
-        '', //6
+        'http://35.184.63.236:3004', //6
         'http://68.183.102.104:3000', //7
         'http://35.232.242.252:9999/', //8
         'http://sa-g9.us-e2.cloudhub.io', //9
