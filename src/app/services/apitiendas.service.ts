@@ -24,8 +24,8 @@ export class ApiTiendasService {
         'http://soagrupo11.us-e2.cloudhub.io',//11
         '',//12
         'http://www.sa-proyecto.tk',//13
-        '',//14
-        '',
+        'http://35.226.247.82:8080',//14
+        'http://34.73.17.174:4000', //15
         '',
         '',
         ''];
