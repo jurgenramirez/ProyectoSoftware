@@ -19,6 +19,8 @@ import { ReporteclienteComponent} from './reportecliente/reportecliente.componen
 
 import { LoginSbComponent } from './login-sb/login-sb.component';
 import { EsbclienteComponent } from './esbcliente/esbcliente.component';
+import { EsbcarritoComponent} from './esbcarrito/esbcarrito.component';
+import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
 
 export const AppRoutes: Routes = [
   { path: 'not-found', component: GPageNotFoundComponent, data: { message: 'Page not found!' } },
@@ -49,6 +51,8 @@ export const AppRoutes: Routes = [
 
   //ESB
   { path: 'esb/cliente', component:EsbclienteComponent},
+  { path: 'esb/carrito', component:EsbcarritoComponent},
+  { path: 'esb/verproducto/:idProducto', component:EsbverproductoComponent},
 
   //{ path: '**', redirectTo: '/not-found' },
   

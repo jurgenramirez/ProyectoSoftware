@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiTiendasService } from '../services/apitiendas.service';
+import {CarritoService } from 'src/app/services/carrito.service';
+import { Router, CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-esbcliente',
@@ -13,7 +15,8 @@ export class EsbclienteComponent implements OnInit {
   store : number ;
   Productos:any[];
 
-  constructor( private apiTiendas: ApiTiendasService) { }
+  constructor( private apiTiendas: ApiTiendasService , private carritoService: CarritoService,
+    private router: Router,) { }
 
   ngOnInit(): void {
 
@@ -29,6 +32,22 @@ export class EsbclienteComponent implements OnInit {
 
     })
 
+  }
+
+  verProducto(idProducto){
+    //console.log(idProducto);
+    return this.router.navigateByUrl(`/esb/verproducto/${idProducto}`);
+  }
+
+  addProducto(producto) {
+    
+    
+    this.carritoService.addCarrito(producto);
+    console.log(producto)
+    console.log("ok")
+
+    //return this.router.navigateByUrl(`/carrito/${this.idCliente}`);
+    
   }
 
 }

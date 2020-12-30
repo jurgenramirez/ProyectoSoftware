@@ -51,6 +51,8 @@ import { ReporteclienteComponent } from './reportecliente/reportecliente.compone
 import { LoginSbComponent } from './login-sb/login-sb.component';
 import { RegisterSbComponent } from './register-sb/register-sb.component';
 import { EsbclienteComponent } from './esbcliente/esbcliente.component';
+import { EsbcarritoComponent } from './esbcarrito/esbcarrito.component';
+import { EsbverproductoComponent } from './esbverproducto/esbverproducto.component';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { EsbclienteComponent } from './esbcliente/esbcliente.component';
     ReporteclienteComponent,
     LoginSbComponent,
     RegisterSbComponent,
-    EsbclienteComponent
+    EsbclienteComponent,
+    EsbcarritoComponent,
+    EsbverproductoComponent
   ],
   imports: [
     BrowserModule,

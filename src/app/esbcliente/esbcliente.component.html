@@ -20,6 +20,9 @@
           <th scope="col"> Stock </th>
           <th scope="col"> Precio Venta </th>
           <th scope="col"> Foto </th>
+          <th scope="col"> Agregar al Carrito </th>
+          <th scope="col"> Ver Prodcuto </th>
+          
 
         </tr>
       </thead>
@@ -31,6 +34,10 @@
             <td>{{Producto.stock}}</td>
             <td>{{Producto.precio_venta}}</td>
             <td><img src="{{Producto.foto}}"></td>
+
+
+            <td><button class="btn" (click)="addProducto(Producto)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></td>
+            <td><button class="btn" (click)="verProducto(Producto.id_producto)"><i class="fa fa-plus"></i></button></td>
               
           </tr>
       </tbody>
